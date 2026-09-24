@@ -1,0 +1,301 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fdfbf7;
+  --surface: #fff;
+  --ink-strong: #1a1330;
+  --ink: #2c2540;
+  --muted: #5b5346;
+  --subtle: #837868;
+  --border: #ece4d8;
+  --kbd-border: #d8ccba;
+  --accent: #d83f31;
+  --accent-hover: #b23023;
+  --accent-soft: #fc7465;
+  --selection: #ffc4ba;
+  /* The flash must read stronger than the selection, so it multiplies on light backgrounds and screens on dark ones. */
+  --flash: rgb(252 116 101 / 0.75);
+  --flash-blend: multiply;
+  --gutter: clamp(16px, 4vw, 48px);
+  --copy-shake-ms: 400ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17131f;
+    --surface: #251f30;
+    --ink-strong: #f6f1ea;
+    --ink: #e6dfd4;
+    --muted: #b6ab9b;
+    --subtle: #928878;
+    --border: #342c40;
+    --kbd-border: #4a4056;
+    --accent: #ff7a6b;
+    --accent-hover: #ff9d91;
+    --selection: #7a3a34;
+    --flash: rgb(252 116 101 / 0.6);
+    --flash-blend: screen;
+  }
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Switzer", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+[hidden] { display: none !important; }
+
+::selection { background: var(--selection); color: inherit; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header and navigation */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding: 20px var(--gutter);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-name {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: var(--ink-strong);
+}
+.site-name:hover { color: var(--ink-strong); text-decoration: none; }
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px clamp(14px, 2.5vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+.site-nav a { color: var(--muted); }
+/* A shake moves the element with translate, which inline boxes ignore. */
+.site-nav a, .site-footer a { display: inline-block; }
+.site-nav a:hover { color: var(--ink-strong); }
+.site-nav a[aria-current="page"] {
+  color: var(--ink-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-soft);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Footer */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  padding: 28px var(--gutter);
+  font-size: 14px;
+  color: var(--subtle);
+  border-top: 1px solid var(--border);
+}
+.site-footer ul {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Shared type */
+
+.eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Home */
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+  padding: clamp(48px, 10vh, 120px) var(--gutter);
+}
+
+.hero-sentence {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink-strong);
+  text-wrap: balance;
+  user-select: all;
+  -webkit-user-select: all;
+  cursor: text;
+}
+
+.hero-instruction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--muted);
+}
+
+kbd {
+  min-width: 22px;
+  padding: 6px 12px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink-strong);
+  background: var(--surface);
+  border: 1px solid var(--kbd-border);
+  border-bottom-width: 3px;
+  border-radius: 10px;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-height: 150px;
+  margin-top: clamp(24px, 5vh, 56px);
+}
+.answer-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.answer h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-strong);
+}
+.answer p {
+  margin: 0;
+  max-width: 36ch;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.button {
+  margin-top: 8px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink-strong);
+  background: var(--surface);
+  border: 1px solid var(--kbd-border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.button:hover { border-color: var(--accent-soft); }
+.button[aria-pressed="true"] { border-color: var(--accent); }
+
+.text-button {
+  margin-top: auto;
+  padding: 0;
+  font: inherit;
+  font-size: 15px;
+  color: var(--subtle);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Stub pages */
+
+.stub {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: clamp(48px, 10vh, 120px) var(--gutter);
+}
+.stub h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink-strong);
+}
+.stub h1 + p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--muted); }
+
+/* Copy feedback, drawn by js/copy-feedback.js */
+
+.copy-flash {
+  position: absolute;
+  z-index: 9999;
+  border-radius: 4px;
+  background: var(--flash);
+  mix-blend-mode: var(--flash-blend);
+  pointer-events: none;
+}
+
+.copy-shake { animation: copy-shake var(--copy-shake-ms) ease-in-out; }
+
+@keyframes copy-shake {
+  0%, 100% { translate: 0; }
+  20% { translate: -8px; }
+  40% { translate: 8px; }
+  60% { translate: -5px; }
+  80% { translate: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-shake {
+    animation: none;
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+  }
+}
