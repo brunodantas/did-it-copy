@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Stub pages for History, Precedents, Proposal and Demo, with the same header and navigation as Home.
 - Light and dark mode, phone-width layout, and a reduced-motion version of the flash and the shake.
 - MIT licence for the code, CC BY 4.0 for the content, and the glossary in `CONTEXT.md`.
+- Research notes on the menu-title lead in `research/menu-title-lead.md`. Classic Mac OS highlighted the menu title when a Command-key equivalent fired, but the system never beeped on a disabled command.
