@@ -15,3 +15,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Light and dark mode, phone-width layout, and a reduced-motion version of the flash and the shake.
 - MIT licence for the code, CC BY 4.0 for the content, and the glossary in `CONTEXT.md`.
 - Research notes on the menu-title lead in `research/menu-title-lead.md`. Classic Mac OS highlighted the menu title when a Command-key equivalent fired, but the system never beeped on a disabled command.
+- Research notes on the history of copy and paste in `research/copy-paste-history.md`, covering Gypsy, the Lisa, the early Macintosh, IBM CUA and early Windows. None of their guidelines gave a successful copy any feedback. The early systems kept the clipboard on screen instead, and later ones hid it behind Show Clipboard and the Clipboard viewer.
