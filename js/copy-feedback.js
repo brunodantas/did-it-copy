@@ -3,7 +3,16 @@
 const FLASH_MS = 200;
 const shakeTimers = new WeakMap();
 
-const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+// A page can force either motion version through data-motion on the root, as the Demo's toggle does.
+const reducedMotion = () => {
+  const forced = document.documentElement.dataset.motion;
+  return forced ? forced === "reduce" : matchMedia("(prefers-reduced-motion: reduce)").matches;
+};
+
+// A held key repeats the copy many times a second, and WCAG 2.3.1 allows at most three flashes.
+let keyRepeating = false;
+addEventListener("keydown", (event) => { keyRepeating = event.repeat; }, { capture: true });
+addEventListener("keyup", () => { keyRepeating = false; }, { capture: true });
 
 // Mac copies with Cmd+C only and other systems with Ctrl+C only, so the other modifier is not a copy.
 const isMac = /mac|iphone|ipad/i.test(navigator.userAgentData?.platform ?? navigator.platform);
@@ -24,6 +33,11 @@ export function flashCopiedRegion() {
   const rects = [];
   for (let i = 0; i < selection.rangeCount; i++) rects.push(...textRects(selection.getRangeAt(i)));
   flashRects(rects);
+}
+
+// A copy with no copied region flashes its trigger instead, in the trigger's own shape.
+export function flashTrigger(element) {
+  flashRects([element.getBoundingClientRect()], getComputedStyle(element).borderRadius);
 }
 
 export function shake(element) {
@@ -53,7 +67,8 @@ function textRects(range) {
   return rects;
 }
 
-function flashRects(rects) {
+function flashRects(rects, borderRadius) {
+  if (keyRepeating) return;
   for (const rect of rects) {
     if (!rect.width || !rect.height) continue;
     const overlay = document.createElement("div");
@@ -64,6 +79,7 @@ function flashRects(rects) {
       top: `${rect.top + scrollY}px`,
       width: `${rect.width}px`,
       height: `${rect.height}px`,
+      borderRadius,
     });
     document.body.append(overlay);
     if (reducedMotion()) {

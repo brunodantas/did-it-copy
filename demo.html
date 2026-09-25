@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,800&amp;display=swap">
   <link rel="stylesheet" href="css/site.css">
+  <script type="module" src="js/demo.js"></script>
 </head>
 <body>
 <div class="page">
@@ -25,10 +26,35 @@
     </nav>
   </header>
 
-  <main class="stub">
-    <p class="eyebrow">Coming soon</p>
+  <main class="demo">
+    <p class="eyebrow">Try it</p>
     <h1>Demo</h1>
-    <p>This page is not written yet.</p>
+    <p class="demo-intro">Both panels hold the same text. Only one of them answers a copy.</p>
+
+    <div class="demo-controls">
+      <span>Select text in either panel and press <kbd data-copy-key>Ctrl</kbd> <kbd>C</kbd>, or press it with nothing selected.</span>
+      <label class="motion-toggle"><input type="checkbox" id="motion-toggle"> Reduced motion</label>
+    </div>
+
+    <div class="panels">
+      <section class="panel" data-silent tabindex="0" aria-labelledby="silent-heading">
+        <h2 id="silent-heading">Today</h2>
+        <p class="panel-text">Copy is the one edit command that changes nothing on screen.</p>
+        <div class="panel-link">
+          <code>https://brunodantas.github.io/did-it-copy/</code>
+          <button class="button" type="button" data-copy-button>Copy link</button>
+        </div>
+      </section>
+
+      <section class="panel" tabindex="0" aria-labelledby="feedback-heading">
+        <h2 id="feedback-heading">With copy feedback</h2>
+        <p class="panel-text">Copy is the one edit command that changes nothing on screen.</p>
+        <div class="panel-link">
+          <code>https://brunodantas.github.io/did-it-copy/</code>
+          <button class="button" type="button" data-copy-button>Copy link</button>
+        </div>
+      </section>
+    </div>
   </main>
 </div>
 

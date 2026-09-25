@@ -14,7 +14,6 @@ const skip = document.getElementById("skip");
 
 let copiesWithoutFeedback = 0;
 let feedbackOn = false;
-let copyKeyHeld = false;
 
 for (const label of document.querySelectorAll("[data-copy-key]")) label.textContent = copyKeyLabel;
 verdict.textContent = FIRST_VERDICT;
@@ -37,11 +36,7 @@ function setCopyFeedback(on) {
 // The copy event covers every successful copy, including a phone's long-press menu.
 document.addEventListener("copy", () => {
   if (selectionIsEmpty()) return;
-  if (feedbackOn) {
-    // A held shortcut repeats the copy many times a second, and WCAG 2.3.1 allows at most three flashes.
-    if (!copyKeyHeld) flashCopiedRegion();
-    return;
-  }
+  if (feedbackOn) return flashCopiedRegion();
   copiesWithoutFeedback += 1;
   verdict.textContent = copiesWithoutFeedback > 1 ? RECOPY_VERDICT : FIRST_VERDICT;
   reveal();
@@ -49,13 +44,11 @@ document.addEventListener("copy", () => {
 
 // A failed copy fires no copy event in some browsers, so the key press is the only way to catch it.
 document.addEventListener("keydown", (event) => {
-  copyKeyHeld = event.repeat;
   if (!isCopyShortcut(event) || !selectionIsEmpty()) return;
   if (!feedbackOn) return reveal();
   const focused = document.activeElement;
   shake(focused && focused !== document.body ? focused : sentence);
 });
-document.addEventListener("keyup", () => { copyKeyHeld = false; });
 
 toggle.addEventListener("click", () => setCopyFeedback(!feedbackOn));
 
