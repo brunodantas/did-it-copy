@@ -1,4 +1,4 @@
-**Verdict: PARTLY TRUE.** The menu title highlight is CONFIRMED. From the first Macintosh on, the Toolbox routine MenuKey highlighted the menu title whenever a Command-key equivalent chose an enabled item, Copy included. The beep on a disabled command is REFUTED as system behaviour, because MenuKey returned 0 for a disabled item and did nothing else. Whether any app beeped on a disabled Command key is UNCONFIRMED. The guidelines only suggested apps beep for "Cut when there's no text selection".
+**Verdict: PARTLY TRUE.** The menu title highlight is CONFIRMED. From the first Macintosh on, the Toolbox routine MenuKey highlighted the menu title whenever a Command-key equivalent chose an enabled item, Copy included. The beep on a disabled command is REFUTED as system behaviour, because MenuKey returned 0 for a disabled item and did nothing else. Current macOS still highlights the title, by direct observation, though no Apple doc says so. Whether any app beeped on a disabled Command key is UNCONFIRMED. The guidelines only suggested apps beep for "Cut when there's no text selection".
 
 The Toolbox is the classic Mac OS system code apps called, and Inside Macintosh documents it. HIG means an edition of Apple's Human Interface Guidelines. CONFIRMED, REFUTED and UNCONFIRMED refer to what the primary sources say.
 
@@ -12,7 +12,7 @@ The Toolbox is the classic Mac OS system code apps called, and Inside Macintosh 
 - The 1985 and 1987 guidelines did offer a beep for one case, as the first stage of an alert when the user "chooses Cut when there's no text selection". That was an app choice, and it assumes Cut was left enabled. [1, p. I-69] [3, p. 62]
 - The Lisa's 1980 standards beeped when an Apple-key combination had no command assigned at all. That is a different case from a disabled command. [6, p. 13]
 - Apple documents the title highlight for System 1 in 1985, System 7 in 1992, and Carbon in 2004, which ran on Mac OS 8.1 or later and Mac OS X 10.0 or later. [1] [5] [7]
-- For Cocoa and current macOS, I found no Apple doc saying a key equivalent highlights the menu title. UNCONFIRMED.
+- Current macOS highlights the menu title when a key equivalent fires, by direct observation. I found no Apple doc that says so. [14]
 - Since Mac OS X 10.5, Cocoa passes a key equivalent for a disabled menu item on to the app, and an unhandled key-down beeps. No doc says what this does for Command-C with nothing selected. UNCONFIRMED. [8] [10] [11]
 
 ## Findings
@@ -50,7 +50,8 @@ Lisa. The 1980 Lisa User Interface Standards say that if no command in the menu 
 | Original Macintosh, Inside Macintosh I, 1985 | Yes, MenuKey does it | [1] |
 | System 7, Toolbox Essentials, 1992 | Yes, enabled items only | [5] |
 | Carbon on Mac OS 8.1 or later and Mac OS X 10.0 or later, 2004 | Yes: MenuKey, MenuEvent and IsMenuKeyEvent | [7] |
-| Cocoa, Mac OS X to current macOS | UNCONFIRMED, no doc found | [9] [12] |
+| Current macOS | Yes, by observation. No doc found. | [14] |
+| Cocoa, Mac OS X 10.0 to the release before current | UNCONFIRMED, no doc found | [9] [12] |
 
 For the Carbon row, the 2004 reference says MenuEvent highlights "the menu title of the chosen menu" when the key maps to an enabled item [7, function group 14]. IsMenuKeyEvent "highlights the menu title of the menu containing the selected item" by default [7, function group 12]. HiliteMenu lists MenuKey, MenuEvent and IsMenuKeyEvent as the functions that highlight [7, function group 6].
 
@@ -58,7 +59,7 @@ For Mac OS 8 and 9 without CarbonLib, I found no manual written for those versio
 
 ### Current macOS
 
-The title highlight is UNCONFIRMED. The NSMenu `performKeyEquivalent(with:)` reference only says it returns true when the menu handles the event [12]. The closest statement is on `performActionForItem(at:)`. "In OS X v10.6 `performActionForItemAtIndex:`, when called, now triggers highlighting in the menu bar" [9]. The Snow Leopard release notes say the same [8]. That covers an app calling the method from code. It does not say that key equivalents highlight.
+The title highlight still happens. The site's author observed it on current macOS on 2026-09-25 [14]. No Apple doc states it. The NSMenu `performKeyEquivalent(with:)` reference only says it returns true when the menu handles the event [12]. The closest statement is on `performActionForItem(at:)`. "In OS X v10.6 `performActionForItemAtIndex:`, when called, now triggers highlighting in the menu bar" [9]. The Snow Leopard release notes say the same [8]. That covers an app calling the method from code. It does not say that key equivalents highlight.
 
 The beep has a documented path. The AppKit release notes for Leopard, 10.5, say: "Prior to Leopard, key equivalents corresponding to disabled menu items would be ignored. In Leopard, your application now has a chance to handle these" [8]. The Cocoa event guide says that from 10.5, an unrecognised key equivalent goes to the first responder as a key-down event [11, Handling Key Events]. NSResponder's `noResponder(for:)` "beeps if eventSelector is keyDown(with:)" [10]. The event guide also says the last responder "for a key-down event simply beeps" [11, Event Architecture]. These three docs imply that since 10.5, Command-C on a disabled Copy beeps unless something in the responder chain handles the event. That is an inference, not a documented behaviour. No Apple doc states it for Copy, so whether current macOS beeps in TextEdit with nothing selected is UNCONFIRMED.
 
@@ -76,7 +77,7 @@ In short, a successful Command-C highlighted the Edit title in classic Mac OS. T
 
 ## Open questions
 
-- Does current macOS, in Cocoa apps, highlight the menu title when a key equivalent fires? UNCONFIRMED. An AppKit doc or release note that says so would settle it. A screen recording of Command-C in TextEdit would show the behaviour but would still not count as a doc.
+- When did Cocoa start highlighting the menu title on a key equivalent? UNCONFIRMED. Current macOS does it by observation [14], but no doc dates it. An AppKit release note would settle it.
 - Does current macOS beep on Command-C with nothing selected? UNCONFIRMED. The doc chain in [8], [10] and [11] predicts yes, but a text view could handle the key-down itself. A doc on NSTextView's handling of unmatched Command keys would settle it.
 - Did the non-Carbon MenuKey on Mac OS 8 and 9 still highlight? UNCONFIRMED. The Mac OS 8 Toolbox reference or the Appearance Manager docs would settle it.
 - Did the Cut example for staged alerts leave the guidelines by 1992? UNCONFIRMED; my check ran on OCR text. A page check of the 1992 HIG alert chapter, around pp. 195-205, would settle it.
@@ -99,3 +100,4 @@ In short, a successful Command-C highlighted the Edit title in classic Mac OS. T
 11. Cocoa Event Handling Guide. Apple, developer.apple.com archive. Chapters "Event Architecture" (The Responder Chain) and "Handling Key Events" (Handling Key Equivalents). https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html and https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/HandlingKeyEvents/HandlingKeyEvents.html
 12. NSMenu, `performKeyEquivalent(with:)`. Apple Developer Documentation, AppKit, current. https://developer.apple.com/documentation/appkit/nsmenu/performkeyequivalent(with:)
 13. Human Interface Guidelines, pages "The menu bar" and "Menus". Apple, developer.apple.com, current as of 2026-09-24. https://developer.apple.com/design/human-interface-guidelines/the-menu-bar and https://developer.apple.com/design/human-interface-guidelines/menus
+14. Direct observation of a Command-key equivalent highlighting the menu title on current macOS, by the site's author, 2026-09-25. Not a published source.
