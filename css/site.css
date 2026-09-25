@@ -289,6 +289,19 @@ kbd {
   letter-spacing: -0.03em;
   color: var(--ink-strong);
 }
+.demo-section {
+  margin-top: clamp(48px, 8vh, 80px);
+  padding-top: clamp(32px, 5vh, 48px);
+  border-top: 1px solid var(--border);
+}
+.demo-section h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-strong);
+}
 .demo-intro {
   margin: 0;
   max-width: 60ch;
@@ -335,7 +348,7 @@ kbd {
   border-radius: 16px;
 }
 .panel:focus-visible { outline-offset: 4px; }
-.panel h2 {
+.panel h3 {
   margin: 0;
   font-size: 13px;
   font-weight: 600;

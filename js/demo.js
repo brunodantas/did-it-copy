@@ -1,6 +1,6 @@
 import { copyKeyLabel, flashCopiedRegion, flashTrigger, isCopyShortcut, selectionIsEmpty, shake } from "./copy-feedback.js";
 
-// The Demo answers every copy with the proposed feedback, except in the panel marked data-silent, which behaves like every desktop today.
+// The What page answers every copy with the proposed feedback, except in the panel marked data-silent, which behaves like every desktop today.
 
 const silentPanel = document.querySelector(".panel[data-silent]");
 const feedbackPanel = document.querySelector(".panel:not([data-silent])");
