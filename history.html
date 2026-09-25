@@ -23,10 +23,139 @@
     </nav>
   </header>
 
-  <main class="stub">
-    <p class="eyebrow">Coming soon</p>
+  <main class="article">
+    <p class="eyebrow">Draft</p>
     <h1>History</h1>
-    <p>This page is not written yet.</p>
+    <!-- Bruno's prose: the intro. No guideline gave a successful Copy command any feedback, apart from the 1992 pen gesture; the early systems showed the clipboard instead. -->
+
+    <section class="article-section" aria-labelledby="origin-heading">
+      <h2 id="origin-heading">Where copy and paste began</h2>
+      <!-- Bruno's prose: Gypsy's copy was a source selection plus PASTE, and Copy as a command arrived with the Lisa. -->
+      <ol class="timeline">
+        <li><time datetime="1975-04-20">20 April 1975</time>. Larry Tesler and Timothy Mott describe Gypsy at Xerox PARC. It has no Copy key. The user marks a source, shown by a dotted underline, and presses PASTE to copy it to the target<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup>. The 1978 handbook describes the same model<sup class="fn-ref"><a href="#fn-2" aria-label="Source 2">2</a></sup>.</li>
+        <li><time datetime="1979-09">September 1979</time>. The manual for Bravo, the Alto editor Gypsy grew from, marks a copy selection with a dotted underline<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>.</li>
+        <li><time datetime="1980-09-20">20 September 1980</time>. The Lisa User Interface Standards define Copy as Cut, "except that the selection is not changed or deleted"<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup>.</li>
+        <li><time datetime="1981-04-15">15 April 1981</time>. The Xerox Star spec has a Copy key and no clipboard. Copy "proceeds exactly as with Move, except that a slightly different cursor shape is used"<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup>.</li>
+        <li><time datetime="1983">1983</time>. The Lisa ships with the Clipboard as a desktop object<sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>. LisaWrite's tutorial is the only manual found that has the user watch a copy arrive on the Clipboard<sup class="fn-ref"><a href="#fn-7" aria-label="Source 7">7</a></sup>.</li>
+        <li><time datetime="1984">1984</time>. The Macintosh manual teaches Show Clipboard after a Cut. Copy appears only in its reference section<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup>.</li>
+        <li><time datetime="1985">1985</time>. Inside Macintosh says an app "can show" the Clipboard in a window. Copy leaves the selection in the document<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup>.</li>
+        <li><time datetime="1985">1985</time>. The Windows 1.0 user's guide tells users to run CLIPBRD.EXE to see what they copied<sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>.</li>
+      </ol>
+      <p>Tesler wrote in 2012 that "The term copy and paste appears to have originated in Gypsy", and that Gypsy had "dedicated keys for cut, copy, paste, and undo"<sup class="fn-ref"><a href="#fn-11" aria-label="Source 11">11</a></sup>. Both Gypsy manuals list only CUT and PASTE, so the keys are UNCONFIRMED. Tesler hedges the first claim himself, and it is UNCONFIRMED too<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-2" aria-label="Source 2">2</a></sup>.</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="clipboard-heading">
+      <h2 id="clipboard-heading">The clipboard you could see</h2>
+      <!-- Bruno's prose: the early answer was a visible clipboard, not a signal, and nothing replaced it once it went behind a command. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Where each system showed the copied content">
+        <table>
+          <caption>Where each system showed the copied content</caption>
+          <thead>
+            <tr><th scope="col">System</th><th scope="col">Where the content showed</th><th scope="col">On screen by default</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Gypsy, 1975</th><td>The waste basket window, "so that the operator can see what has been cut"<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup></td><td>Yes<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup></td></tr>
+            <tr><th scope="row">Bravo, 1979</th><td>The system window, with the last deletion and the last insertion<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td><td>Yes<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td></tr>
+            <tr><th scope="row">Xerox Star, 1981</th><td>No clipboard. The copy appears at the destination, selected<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup></td><td>The copy itself is on screen<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup></td></tr>
+            <tr><th scope="row">Lisa, 1983</th><td>The Clipboard window, which the user can open but not edit<sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup></td><td>If the user leaves it open, as the Owner's Guide says many people do<sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup></td></tr>
+            <tr><th scope="row">Macintosh, 1984 and 1985</th><td>A Clipboard window, shown "only when requested". A 1983 draft said apps "will usually" have one<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-12" aria-label="Source 12">12</a></sup></td><td>No. The manuals teach Show Clipboard after a Cut, not after a Copy<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup><sup class="fn-ref"><a href="#fn-13" aria-label="Source 13">13</a></sup></td></tr>
+            <tr><th scope="row">Windows 1.0, 3.0 and 3.1</th><td>The Clipboard viewer, CLIPBRD.EXE in 1.0<sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>. The 3.0 and 3.1 guides still point users to it<sup class="fn-ref"><a href="#fn-14" aria-label="Source 14">14</a></sup><sup class="fn-ref"><a href="#fn-15" aria-label="Source 15">15</a></sup></td><td>No. The user runs it<sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="guidelines-heading">
+      <h2 id="guidelines-heading">What the guidelines said about Copy</h2>
+      <!-- Bruno's prose: each guideline has a feedback rule that its own Copy entry breaks, and all of them put their effort into the failed copy. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="What each guideline says about Copy and about feedback">
+        <table>
+          <caption>What each guideline says about Copy and about feedback</caption>
+          <thead>
+            <tr><th scope="col">Guideline</th><th scope="col">Copy entry</th><th scope="col">General feedback rule</th><th scope="col">Nothing selected</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Inside Macintosh, 1985</th><td>"Copy puts a copy of the selection in the Clipboard, but the selection also remains in the document"<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup></td><td>"there should always be some sort of feedback", said of clicks<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup></td><td>Disable Copy. In TextEdit, Copy empties the scrap with no message<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup></td></tr>
+            <tr><th scope="row">Apple HIG, 1987</th><td>"Copy puts a duplicate of the selection in the Clipboard"<sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup></td><td>"Keep the user informed. Provide immediate feedback"<sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup></td><td>A beep, then an alert, for Cut with no selection. Nothing for Copy<sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup></td></tr>
+            <tr><th scope="row">Windows style guide, 1987</th><td>Control+Insert. Nothing specified for a successful copy<sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup>. If memory or <code>OpenClipboard</code> fails, Microsoft's sample Copy handler stops with no message<sup class="fn-ref"><a href="#fn-18" aria-label="Source 18">18</a></sup></td><td>The word "feedback" does not appear. Beeps and message boxes are for errors<sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup></td><td>Disable Copy<sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup></td></tr>
+            <tr><th scope="row">IBM CUA, 1987</th><td colspan="3">SC26-4351 is not online, so what it said is UNCONFIRMED. The 1989 guide replaced it<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup></td></tr>
+            <tr><th scope="row">IBM on CUA, 1988</th><td>Copying text is left to the application. No clipboard is mentioned<sup class="fn-ref"><a href="#fn-20" aria-label="Source 20">20</a></sup></td><td>"Feedback is provided for almost every user interaction", and "Audio beeps are used when users' action requests do not cause normally expected results"<sup class="fn-ref"><a href="#fn-20" aria-label="Source 20">20</a></sup></td><td>Not found</td></tr>
+            <tr><th scope="row">IBM CUA, 1989</th><td>A definition only. The Cut entry says what the user sees, the Copy entry does not<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup></td><td>"Issue an information message to tell users that an action has been completed if there is no other visible indication"<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup></td><td>"present a message that tells users to select an object"<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup></td></tr>
+            <tr><th scope="row">Windows design guide, 1992</th><td>No acknowledgement from the menu or the keys. For the pen Copy gesture, "Feedback: copy pointer flashes."<sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup></td><td>"The user should receive immediate and tangible feedback for actions within an application"<sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup></td><td>Dim Copy<sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup></td></tr>
+            <tr><th scope="row">IBM CUA, 1992</th><td>"When a user copies an object to the clipboard, do not change the state of the source object"<sup class="fn-ref"><a href="#fn-22" aria-label="Source 22">22</a></sup></td><td>Not checked</td><td>Copy shows unavailable, and choosing it beeps<sup class="fn-ref"><a href="#fn-22" aria-label="Source 22">22</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="menu-title-heading">
+      <h2 id="menu-title-heading">The menu-title lead</h2>
+      <!-- Bruno's prose: the lead is partly true. Command-C highlighted the Edit title, but so did every Command key, so the highlight never signalled a copy in particular. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="The menu-title lead, claim by claim">
+        <table>
+          <caption>The menu-title lead, claim by claim</caption>
+          <thead>
+            <tr><th scope="col">Claim</th><th scope="col">Verdict</th><th scope="col">What the sources show</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Classic Mac OS highlighted the menu title when a Command key fired</th><td>CONFIRMED</td><td>MenuKey "highlights the appropriate menu title" for any enabled item, Copy included, in the 1983 draft, in 1985 and 1992, and in Carbon in 2004<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-12" aria-label="Source 12">12</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup><sup class="fn-ref"><a href="#fn-24" aria-label="Source 24">24</a></sup></td></tr>
+            <tr><th scope="row">The system beeped when the command was disabled</th><td>REFUTED</td><td>For a disabled item MenuKey returned 0 and drew nothing. Apple told apps to disable Copy when nothing was selected<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup>. Whether any app beeped is UNCONFIRMED</td></tr>
+            <tr><th scope="row">Current macOS still highlights the title</th><td>Observed, no doc</td><td>Seen by the site's author on 25 September 2026<sup class="fn-ref"><a href="#fn-25" aria-label="Source 25">25</a></sup></td></tr>
+            <tr><th scope="row">Current macOS beeps on Command-C with nothing selected</th><td>UNCONFIRMED</td><td>Since Mac OS X 10.5 a disabled key equivalent reaches the app, and an unhandled key-down beeps. No doc says so for Copy<sup class="fn-ref"><a href="#fn-26" aria-label="Source 26">26</a></sup><sup class="fn-ref"><a href="#fn-27" aria-label="Source 27">27</a></sup><sup class="fn-ref"><a href="#fn-28" aria-label="Source 28">28</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="star-heading">
+      <h2 id="star-heading">Star's rule</h2>
+      <!-- Bruno's prose: Star shows the other path was open. It gave copy a cursor, a prompt and a new selection. -->
+      <blockquote>
+        <p>"You never invoke a command or push a key and have nothing visible happen"<sup class="fn-ref"><a href="#fn-29" aria-label="Source 29">29</a></sup></p>
+        <footer>The Star designers, BYTE, April 1982</footer>
+      </blockquote>
+    </section>
+
+    <section class="article-section" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why copy ended up silent</h2>
+      <!-- Bruno's prose: no source gives a reason. The notes read it as: copy changes no data; the visible clipboard went behind a command and nothing replaced it (sources 1, 3, 6, 9, 10); beeps and message boxes were kept for errors (17, 21); the guidelines worked on the failed copy (4, 17, 19); each had a feedback rule that should have covered copy (9, 16, 20, 19, 21). -->
+    </section>
+
+    <section class="footnotes" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources</h2>
+      <p>The research notes behind this page are in <a href="https://github.com/brunodantas/did-it-copy/blob/main/research/copy-paste-history.md">research/copy-paste-history.md</a> and <a href="https://github.com/brunodantas/did-it-copy/blob/main/research/menu-title-lead.md">research/menu-title-lead.md</a>. Sources were read on 24 and 25 September 2026.</p>
+      <ol>
+        <li id="fn-1">Tesler, Larry, and Timothy Mott. Gypsy: The Ginn Typescript System. Xerox PARC, 20 April 1975. Pages 2, 4 to 6, 8 and 9. <a href="https://www.bitsavers.org/pdf/xerox/alto/memos_1975/Gypsy_The_Ginn_Typescript_System_Apr75.pdf">https://www.bitsavers.org/pdf/xerox/alto/memos_1975/Gypsy_The_Ginn_Typescript_System_Apr75.pdf</a></li>
+        <li id="fn-2">Gypsy Operator's Handbook. Xerox PARC and XEOS, 11 May 1978. Pages 10, 11, 19 and 20. <a href="https://archive.org/details/bitsavers_xeroxaltogandbookMay1978_991002">https://archive.org/details/bitsavers_xeroxaltogandbookMay1978_991002</a></li>
+        <li id="fn-3">Lampson, Butler, and Charles Simonyi. "Bravo Manual." In Alto User's Handbook, Xerox PARC, September 1979. Pages 36 and 56. <a href="https://archive.org/details/bitsavers_xeroxaltoA79_13724537">https://archive.org/details/bitsavers_xeroxaltoA79_13724537</a></li>
+        <li id="fn-4">Lisa User Interface Standards, Lisa Document #420. Apple Computer, 20 September 1980. Sections 44 and 46, pp. 15 and 16. <a href="https://archive.org/download/apple-hig/1980_Lisa_UI_Standards.pdf">https://archive.org/download/apple-hig/1980_Lisa_UI_Standards.pdf</a></li>
+        <li id="fn-5">STAR Release 1 Product Software Functional Specification, version 5.3. Xerox Office Products Division, 15 April 1981. Section 5, pp. 30 and 31. <a href="https://archive.org/details/bitsavers_xeroxstarSoftwareFunctionalSpecificationVer5.31981_32605652">https://archive.org/details/bitsavers_xeroxstarSoftwareFunctionalSpecificationVer5.31981_32605652</a></li>
+        <li id="fn-6">Lisa Owner's Guide. Apple Computer, 1983. Pages B13 and B17. <a href="https://archive.org/details/bitsavers_applelisaorsGuide1983_10448859">https://archive.org/details/bitsavers_applelisaorsGuide1983_10448859</a></li>
+        <li id="fn-7">LisaWrite. Apple Computer, 1983. Page B15. <a href="https://archive.org/details/bitsavers_applelisaoisaWrite1983_9642237">https://archive.org/details/bitsavers_applelisaoisaWrite1983_9642237</a></li>
+        <li id="fn-8">Macintosh, owner's manual, part 030-0687. Apple Computer, 1983, shipped with the Macintosh 128K in 1984. Pages 33, 34 and 61. <a href="https://archive.org/details/macintosh-manual-1984-030-0687">https://archive.org/details/macintosh-manual-1984-030-0687</a></li>
+        <li id="fn-9">Inside Macintosh, Volume I. Apple Computer, Addison-Wesley, 1985. Pages I-15, I-31, I-58, I-59, I-356 to I-358, I-386 and I-453. <a href="https://vintageapple.org/inside_o/pdf/Inside_Macintosh_Volume_I_1985.pdf">https://vintageapple.org/inside_o/pdf/Inside_Macintosh_Volume_I_1985.pdf</a></li>
+        <li id="fn-10">Microsoft Windows User's Guide. Microsoft, 1985, for Windows 1.0. Pages 92 and 93. <a href="https://archive.org/details/microsoft-windows-1.0-users-guide">https://archive.org/details/microsoft-windows-1.0-users-guide</a></li>
+        <li id="fn-11">Tesler, Larry. "A Personal History of Modeless Text Editing and Cut/Copy-Paste." ACM Interactions 19(4), July and August 2012, pp. 70 to 75. A retrospective, cited by section: Influences, Today. <a href="https://interactions.acm.org/archive/view/july-august-2012/a-personal-history-of-modeless-text-editing-and-cut-copy-paste">https://interactions.acm.org/archive/view/july-august-2012/a-personal-history-of-modeless-text-editing-and-cut-copy-paste</a></li>
+        <li id="fn-12">Inside Macintosh pre-release binder. Apple Computer, 1983 to 1984. Scrap Manager draft dated 10/21/83, and Menu Manager draft dated 11/1/83, pp. 21 and 22. <a href="https://archive.org/details/bitsavers_applemacIn84_27699101">https://archive.org/details/bitsavers_applemacIn84_27699101</a></li>
+        <li id="fn-13">MacWrite, manual, reorder M1502. Apple Computer, 1983. Page 33. <a href="https://archive.org/details/macwrite">https://archive.org/details/macwrite</a></li>
+        <li id="fn-14">Microsoft Windows User's Guide. Microsoft, September 1989, for Windows 3.0. Page 59. <a href="https://archive.org/details/bitsavers_microsoftwUsersGuide198909_23166485">https://archive.org/details/bitsavers_microsoftwUsersGuide198909_23166485</a></li>
+        <li id="fn-15">Microsoft Windows User's Guide, PC21669-0492. Microsoft, April 1992, for Windows 3.1. Page 61. <a href="https://archive.org/details/bitsavers_microsoftwindows3.1PC216690492Windows3.1UsersGuide_27129713">https://archive.org/details/bitsavers_microsoftwindows3.1PC216690492Windows3.1UsersGuide_27129713</a></li>
+        <li id="fn-16">Human Interface Guidelines: The Apple Desktop Interface. Apple Computer, Addison-Wesley, 1987. Pages 7, 62 and 83. <a href="https://archive.org/download/apple-hig/Apple_Human_Interface_Guidelines_1987.pdf">https://archive.org/download/apple-hig/Apple_Human_Interface_Guidelines_1987.pdf</a></li>
+        <li id="fn-17">Microsoft Windows Software Development Kit: Application Style Guide, version 2.0. Microsoft, 1987. Sections 2.8 (p. 23), 3.5 (pp. 30 and 31), 9.1 (p. 75) and 9.3 (p. 76). <a href="https://www.os2museum.com/files/docs/win20sdk/windows-2.0-sdk-styleguide-1987.pdf">https://www.os2museum.com/files/docs/win20sdk/windows-2.0-sdk-styleguide-1987.pdf</a></li>
+        <li id="fn-18">Microsoft Windows 2.0 SDK: Programmer's Learning Guide. Microsoft, 1987. Section 13.2.1, pp. 230 and 231. <a href="https://archive.org/details/part-no-00477-document-no-050051052-200-102-1087-microsoft-windows-2.0-sdk-progr">https://archive.org/details/part-no-00477-document-no-050051052-200-102-1087-microsoft-windows-2.0-sdk-progr</a></li>
+        <li id="fn-19">Systems Application Architecture, Common User Access: Basic Interface Design Guide, SC26-4583-00. IBM, December 1989. Topics FRONT_1.4, 1.2.4.3, 2.5.4.1.2, 3.5.7.4 and 3.11.5. <a href="https://archive.org/details/ibm-saa-cua-basic-interface-design-guide">https://archive.org/details/ibm-saa-cua-basic-interface-design-guide</a></li>
+        <li id="fn-20">Berry, R. E. "Common User Access: A consistent and usable human-computer interface for the SAA environments." IBM Systems Journal 27(3), 1988. Pages 286 and 297. <a href="https://archive.org/details/ibmsj2703E">https://archive.org/details/ibmsj2703E</a></li>
+        <li id="fn-21">The Windows Interface: An Application Design Guide, PC28921-0692. Microsoft, June 1992. Sections 1.1.6 (p. 4) and 3.6.2 (p. 42), Table 5.5 (p. 94) and Table 10.2 (p. 197). <a href="https://archive.org/details/bitsavers_microsoftwindows3.1SDK1992PC289210692WindowsInterf_13508361">https://archive.org/details/bitsavers_microsoftwindows3.1SDK1992PC289210692WindowsInterf_13508361</a></li>
+        <li id="fn-22">Object-Oriented Interface Design: IBM Common User Access Guidelines, SC34-4399-00. IBM, December 1992. Topics 2.2.6 and 2.2.19. <a href="https://archive.org/details/sc34-4399-00">https://archive.org/details/sc34-4399-00</a></li>
+        <li id="fn-23">Inside Macintosh: Macintosh Toolbox Essentials. Apple Computer, Addison-Wesley, 1992. Chapter 3, pp. 3-8, 3-79 and 3-117. <a href="https://vintageapple.org/inside_r/pdf/Macintosh_TB_Essentials_1992.pdf">https://vintageapple.org/inside_r/pdf/Macintosh_TB_Essentials_1992.pdf</a></li>
+        <li id="fn-24">Carbon Menu Manager Reference. Apple Computer, developer.apple.com, archived 2004. Function group 14, MenuEvent: <a href="https://web.archive.org/web/20040903215520/http://developer.apple.com/documentation/Carbon/Reference/Menu_Manager/menu_mgr_ref/function_group_14.html">https://web.archive.org/web/20040903215520/http://developer.apple.com/documentation/Carbon/Reference/Menu_Manager/menu_mgr_ref/function_group_14.html</a>. Function group 6, HiliteMenu: <a href="https://web.archive.org/web/20040911052046/http://developer.apple.com/documentation/Carbon/Reference/Menu_Manager/menu_mgr_ref/function_group_6.html">https://web.archive.org/web/20040911052046/http://developer.apple.com/documentation/Carbon/Reference/Menu_Manager/menu_mgr_ref/function_group_6.html</a></li>
+        <li id="fn-25">Direct observation of a Command-key equivalent highlighting the menu title on current macOS, by the site's author, 2026-09-25. Not a published source.</li>
+        <li id="fn-26">AppKit Release Notes, older releases, Leopard section, "Disabled key equivalents passed through". Apple, developer.apple.com archive. <a href="https://developer.apple.com/library/archive/releasenotes/AppKit/RN-AppKitOlderNotes/index.html">https://developer.apple.com/library/archive/releasenotes/AppKit/RN-AppKitOlderNotes/index.html</a></li>
+        <li id="fn-27">NSResponder, <code>noResponder(for:)</code>. Apple Developer Documentation, AppKit. <a href="https://developer.apple.com/documentation/appkit/nsresponder/noresponder(for:)">https://developer.apple.com/documentation/appkit/nsresponder/noresponder(for:)</a></li>
+        <li id="fn-28">Cocoa Event Handling Guide, "Handling Key Events". Apple, developer.apple.com archive. <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/HandlingKeyEvents/HandlingKeyEvents.html">https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/HandlingKeyEvents/HandlingKeyEvents.html</a></li>
+        <li id="fn-29">Smith, David Canfield, Charles Irby, Ralph Kimball, Bill Verplank, and Eric Harslem. "Designing the Star User Interface." BYTE 7(4), April 1982. Page 262. <a href="https://archive.org/details/byte-magazine-1982-04-rescan">https://archive.org/details/byte-magazine-1982-04-rescan</a></li>
+      </ol>
+    </section>
   </main>
 </div>
 

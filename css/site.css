@@ -251,26 +251,6 @@ kbd {
   cursor: pointer;
 }
 
-/* Stub pages */
-
-.stub {
-  flex: 1;
-  width: 100%;
-  max-width: 720px;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: clamp(48px, 10vh, 120px) var(--gutter);
-}
-.stub h1 {
-  margin: 12px 0 16px;
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--ink-strong);
-}
-.stub h1 + p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--muted); }
-
 /* Demo */
 
 .demo {
@@ -384,7 +364,7 @@ kbd {
 }
 .panel-link .button { margin-top: 0; }
 
-/* Precedent */
+/* Article pages: Precedent and History */
 
 .article {
   flex: 1;
