@@ -384,6 +384,91 @@ kbd {
 }
 .panel-link .button { margin-top: 0; }
 
+/* Precedent */
+
+.article {
+  flex: 1;
+  width: 100%;
+  max-width: 880px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: clamp(40px, 8vh, 96px) var(--gutter);
+  font-size: 18px;
+  line-height: 1.55;
+}
+.article h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink-strong);
+}
+.article-section, .footnotes {
+  margin-top: clamp(40px, 6vh, 64px);
+  padding-top: clamp(24px, 4vh, 40px);
+  border-top: 1px solid var(--border);
+}
+.article h2 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 3.5vw, 36px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-strong);
+}
+.article code { font-size: 0.9em; overflow-wrap: anywhere; }
+
+/* Only the table scrolls on a narrow screen, never the page. */
+.table-wrap { overflow-x: auto; }
+.article table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.article caption {
+  caption-side: top;
+  padding-bottom: 8px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+}
+.article th, .article td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.article thead th {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.article tbody th { font-weight: 600; color: var(--ink-strong); }
+
+.article blockquote {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+}
+.article blockquote p { margin: 0; font-size: 20px; color: var(--ink-strong); }
+.article blockquote footer { margin-top: 8px; font-size: 15px; color: var(--muted); }
+
+.timeline { margin: 0; padding-left: 0; list-style: none; }
+.timeline li { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.timeline time { font-weight: 600; color: var(--ink-strong); }
+
+.fn-ref { font-size: 0.7em; line-height: 0; margin-left: 1px; }
+.fn-ref + .fn-ref::before { content: ","; margin-right: 1px; }
+.footnotes p { margin: 0 0 16px; color: var(--muted); }
+.footnotes ol { margin: 0; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.footnotes li { margin-bottom: 6px; overflow-wrap: anywhere; }
+.footnotes li:target { color: var(--ink-strong); background: var(--selection); }
+
 /* Copy feedback, drawn by js/copy-feedback.js */
 
 .copy-flash {

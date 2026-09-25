@@ -23,10 +23,173 @@
     </nav>
   </header>
 
-  <main class="stub">
-    <p class="eyebrow">Coming soon</p>
+  <main class="article">
+    <p class="eyebrow">Draft</p>
     <h1>Precedent</h1>
-    <p>This page is not written yet.</p>
+    <!-- Bruno's prose: the intro. -->
+
+    <section class="article-section" aria-labelledby="platforms-heading">
+      <h2 id="platforms-heading">Who confirms a copy</h2>
+      <!-- Bruno's prose: only Android confirms an ordinary copy; the rest confirm special copies at most. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="What each system shows after a copy, by default">
+        <table>
+          <caption>What each system shows after a copy, by default</caption>
+          <thead>
+            <tr><th scope="col">System</th><th scope="col">Ordinary copy</th><th scope="col">Special copies it confirms</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Android 13 and later</th><td>An overlay with a preview, after every clipboard write<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-2" aria-label="Source 2">2</a></sup><sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td><td>Every clipboard write, images and links included<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td></tr>
+            <tr><th scope="row">iOS and iPadOS</th><td>None documented<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup><sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup><sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup></td><td>None documented<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup><sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup><sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup></td></tr>
+            <tr><th scope="row">macOS 26</th><td>None documented<sup class="fn-ref"><a href="#fn-7" aria-label="Source 7">7</a></sup></td><td>A screenshot to the clipboard plays the shutter sound, observed on macOS 27.0<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup></td></tr>
+            <tr><th scope="row">Windows 10 and 11</th><td>None documented<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup></td><td>A Snipping Tool screenshot<sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup></td></tr>
+            <tr><th scope="row">ChromeOS</th><td>None documented, apart from a nudge shown three times at most<sup class="fn-ref"><a href="#fn-11" aria-label="Source 11">11</a></sup><sup class="fn-ref"><a href="#fn-12" aria-label="Source 12">12</a></sup></td><td>A screenshot, a sharesheet Copy and Capture mode text<sup class="fn-ref"><a href="#fn-12" aria-label="Source 12">12</a></sup><sup class="fn-ref"><a href="#fn-13" aria-label="Source 13">13</a></sup><sup class="fn-ref"><a href="#fn-14" aria-label="Source 14">14</a></sup></td></tr>
+            <tr><th scope="row">Chrome on desktop</th><td>None for text<sup class="fn-ref"><a href="#fn-15" aria-label="Source 15">15</a></sup></td><td>"Link copied" and "Image copied", on by default since Chrome 132<sup class="fn-ref"><a href="#fn-15" aria-label="Source 15">15</a></sup><sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup><sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup><sup class="fn-ref"><a href="#fn-18" aria-label="Source 18">18</a></sup></td></tr>
+            <tr><th scope="row">GNOME</th><td>None, from the source<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup><sup class="fn-ref"><a href="#fn-20" aria-label="Source 20">20</a></sup></td><td>Its own screenshots<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup></td></tr>
+            <tr><th scope="row">KDE Plasma</th><td>None, from the source<sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup></td><td>Not checked</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Bruno's prose: Google tells apps to drop their own toast on Android 13 and later, source 57 in the notes. -->
+    </section>
+
+    <section class="article-section" aria-labelledby="editors-heading">
+      <h2 id="editors-heading">Editors that flash the copied region</h2>
+      <!-- Bruno's prose: every flash is opt-in. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Copy and yank feedback in editors">
+        <table>
+          <caption>Copy and yank feedback in editors</caption>
+          <thead>
+            <tr><th scope="col">Editor</th><th scope="col">Feedback</th><th scope="col">Default</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Neovim</th><td>Built-in <code>vim.hl.on_yank</code> flashes a yank for 150 ms<sup class="fn-ref"><a href="#fn-22" aria-label="Source 22">22</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup></td><td>Off until the user adds an autocmd<sup class="fn-ref"><a href="#fn-22" aria-label="Source 22">22</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup></td></tr>
+            <tr><th scope="row">Vim</th><td>The <code>hlyank</code> package flashes a yank for 300 ms, since 9.1.1228<sup class="fn-ref"><a href="#fn-24" aria-label="Source 24">24</a></sup><sup class="fn-ref"><a href="#fn-25" aria-label="Source 25">25</a></sup></td><td>Off until <code>packadd</code><sup class="fn-ref"><a href="#fn-24" aria-label="Source 24">24</a></sup></td></tr>
+            <tr><th scope="row">Emacs with pulsar</th><td>Pulses the region after a copy<sup class="fn-ref"><a href="#fn-26" aria-label="Source 26">26</a></sup><sup class="fn-ref"><a href="#fn-27" aria-label="Source 27">27</a></sup></td><td>Off until <code>pulsar-global-mode</code><sup class="fn-ref"><a href="#fn-26" aria-label="Source 26">26</a></sup></td></tr>
+            <tr><th scope="row">Emacs</th><td>Blinks the cursor to the mark for 1 s, or prints "Copied text from", only when the region is not highlighted<sup class="fn-ref"><a href="#fn-28" aria-label="Source 28">28</a></sup><sup class="fn-ref"><a href="#fn-29" aria-label="Source 29">29</a></sup></td><td>On<sup class="fn-ref"><a href="#fn-28" aria-label="Source 28">28</a></sup><sup class="fn-ref"><a href="#fn-29" aria-label="Source 29">29</a></sup></td></tr>
+            <tr><th scope="row">VS Code</th><td>Nothing built in<sup class="fn-ref"><a href="#fn-30" aria-label="Source 30">30</a></sup>. VSCodeVim flashes a yank for 200 ms<sup class="fn-ref"><a href="#fn-31" aria-label="Source 31">31</a></sup>. Highlight on Copy flashes a copy for 200 ms<sup class="fn-ref"><a href="#fn-32" aria-label="Source 32">32</a></sup></td><td>Off, or on once the extension is installed<sup class="fn-ref"><a href="#fn-31" aria-label="Source 31">31</a></sup><sup class="fn-ref"><a href="#fn-32" aria-label="Source 32">32</a></sup></td></tr>
+            <tr><th scope="row">JetBrains IDEs</th><td>Nothing for a selection<sup class="fn-ref"><a href="#fn-33" aria-label="Source 33">33</a></sup>. IdeaVim flashes a yank for 300 ms<sup class="fn-ref"><a href="#fn-34" aria-label="Source 34">34</a></sup>. Highlight on Copy blinks once<sup class="fn-ref"><a href="#fn-35" aria-label="Source 35">35</a></sup></td><td>Off, or on once the plugin is installed<sup class="fn-ref"><a href="#fn-34" aria-label="Source 34">34</a></sup><sup class="fn-ref"><a href="#fn-35" aria-label="Source 35">35</a></sup></td></tr>
+            <tr><th scope="row">Zed</th><td>Flashes a yank for 200 ms in vim mode<sup class="fn-ref"><a href="#fn-36" aria-label="Source 36">36</a></sup></td><td>Off, because vim mode is off<sup class="fn-ref"><a href="#fn-36" aria-label="Source 36">36</a></sup></td></tr>
+            <tr><th scope="row">Helix</th><td>Names the register it yanked to, in the status line<sup class="fn-ref"><a href="#fn-37" aria-label="Source 37">37</a></sup></td><td>On<sup class="fn-ref"><a href="#fn-37" aria-label="Source 37">37</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="web-heading">
+      <h2 id="web-heading">Web "Copied!" buttons</h2>
+      <!-- Bruno's prose: pages confirm their own copies because the browser does not, source 99 in the notes. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Copy buttons in design systems">
+        <table>
+          <caption>Copy buttons in design systems</caption>
+          <thead>
+            <tr><th scope="col">Component</th><th scope="col">After a copy</th><th scope="col">For screen readers</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">GitHub Primer</th><td>The copy icon becomes a check for 2 s<sup class="fn-ref"><a href="#fn-38" aria-label="Source 38">38</a></sup></td><td>"Copied!" in a polite live region<sup class="fn-ref"><a href="#fn-38" aria-label="Source 38">38</a></sup></td></tr>
+            <tr><th scope="row">IBM Carbon</th><td>"Copied!" in the tooltip for 2 s<sup class="fn-ref"><a href="#fn-39" aria-label="Source 39">39</a></sup></td><td>The button's label changes<sup class="fn-ref"><a href="#fn-39" aria-label="Source 39">39</a></sup></td></tr>
+            <tr><th scope="row">MDN</th><td>"Copied" for 1 s, or "Copy failed!" for 3 s<sup class="fn-ref"><a href="#fn-40" aria-label="Source 40">40</a></sup></td><td>Visible text only<sup class="fn-ref"><a href="#fn-40" aria-label="Source 40">40</a></sup></td></tr>
+            <tr><th scope="row">GOV.UK Design System site</th><td>"Code copied" for 5 s<sup class="fn-ref"><a href="#fn-41" aria-label="Source 41">41</a></sup></td><td>An assertive live region<sup class="fn-ref"><a href="#fn-41" aria-label="Source 41">41</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="readers-heading">
+      <h2 id="readers-heading">Screen reader announcements</h2>
+      <!-- Bruno's prose: a separate channel, which the proposal keeps. -->
+      <div class="table-wrap" role="region" tabindex="0" aria-label="What screen readers say after a copy">
+        <table>
+          <caption>What screen readers say after a copy</caption>
+          <thead>
+            <tr><th scope="col">Reader</th><th scope="col">Says</th><th scope="col">When</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Orca</th><td>"Copied selection to clipboard."<sup class="fn-ref"><a href="#fn-42" aria-label="Source 42">42</a></sup></td><td>After any Ctrl+C that changes the clipboard<sup class="fn-ref"><a href="#fn-42" aria-label="Source 42">42</a></sup>. Untested on Wayland without GPaste</td></tr>
+            <tr><th scope="row">JAWS</th><td>"copied selection to clipboard."<sup class="fn-ref"><a href="#fn-43" aria-label="Source 43">43</a></sup></td><td>After Ctrl+C, per its 2022 script manual<sup class="fn-ref"><a href="#fn-43" aria-label="Source 43">43</a></sup></td></tr>
+            <tr><th scope="row">NVDA</th><td>"Copied to clipboard:" and the text<sup class="fn-ref"><a href="#fn-44" aria-label="Source 44">44</a></sup></td><td>Only after copies NVDA makes itself, such as Ctrl+C in browse mode<sup class="fn-ref"><a href="#fn-44" aria-label="Source 44">44</a></sup><sup class="fn-ref"><a href="#fn-45" aria-label="Source 45">45</a></sup></td></tr>
+            <tr><th scope="row">TalkBack</th><td>"copied" and the text<sup class="fn-ref"><a href="#fn-46" aria-label="Source 46">46</a></sup></td><td>After its own copy action<sup class="fn-ref"><a href="#fn-46" aria-label="Source 46">46</a></sup></td></tr>
+            <tr><th scope="row">Android's overlay</th><td>Posts "Text copied", "Image copied" or "Content copied" to a polite live region<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td><td>After every clipboard write<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>. Whether TalkBack reads it is unconfirmed</td></tr>
+            <tr><th scope="row">Narrator and VoiceOver</th><td>None documented<sup class="fn-ref"><a href="#fn-47" aria-label="Source 47">47</a></sup><sup class="fn-ref"><a href="#fn-48" aria-label="Source 48">48</a></sup><sup class="fn-ref"><a href="#fn-49" aria-label="Source 49">49</a></sup></td><td>After a user's Ctrl+C or Command-C</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section" aria-labelledby="kde-heading">
+      <h2 id="kde-heading">The KDE objection</h2>
+      <!-- Bruno's prose: the objection, and why a flash in place is not a notification. -->
+      <blockquote>
+        <p>"it would get really annoying to see big chunky system notifications appearing and covering up content in your windows all the time in response to a very common action"<sup class="fn-ref"><a href="#fn-50" aria-label="Source 50">50</a></sup></p>
+        <footer>Nate Graham, KDE, 24 March 2024</footer>
+      </blockquote>
+      <ol class="timeline">
+        <li><time datetime="2024-03-24">24 March 2024</time>. A KDE Discuss thread asks for a small "Copied 1 file" notification. Nate Graham suggests the tray icon could shake instead<sup class="fn-ref"><a href="#fn-50" aria-label="Source 50">50</a></sup>.</li>
+        <li><time datetime="2026-01-06">6 January 2026</time>. Nate closes the matching bug as WONTFIX, citing the KDE HIG<sup class="fn-ref"><a href="#fn-51" aria-label="Source 51">51</a></sup><sup class="fn-ref"><a href="#fn-52" aria-label="Source 52">52</a></sup>.</li>
+        <li><time datetime="2026-06-20">20 June 2026</time>. GNOME's design team opens "Clipboard feedback &amp; history", whose first goal is "Show visible feedback when copying"<sup class="fn-ref"><a href="#fn-53" aria-label="Source 53">53</a></sup>.</li>
+        <li><time datetime="2026-08-13">13 August 2026</time>. Nate confirms a new KDE request and retitles it "Show OSD after copy"<sup class="fn-ref"><a href="#fn-54" aria-label="Source 54">54</a></sup>.</li>
+      </ol>
+    </section>
+
+    <section class="footnotes" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources</h2>
+      <p>The research notes behind this page are in <a href="https://github.com/brunodantas/did-it-copy/blob/main/research/precedent.md">research/precedent.md</a>. Pages were read on 25 September 2026.</p>
+      <ol>
+        <li id="fn-1">Copy and paste. Android Developers, Views guide. Last updated 2026-09-22. <a href="https://developer.android.com/develop/ui/views/touch-and-input/copy-paste">https://developer.android.com/develop/ui/views/touch-and-input/copy-paste</a></li>
+        <li id="fn-2">Features and APIs Overview, Android 13, "Clipboard preview". Android Developers. <a href="https://developer.android.com/about/versions/13/features">https://developer.android.com/about/versions/13/features</a></li>
+        <li id="fn-3">AOSP <code>platform/frameworks/base</code> at tag android-16.0.0_r4, commit 45034f0. Cited by file and line, in <code>packages/SystemUI/src/com/android/systemui/clipboardoverlay/</code>, <code>packages/SystemUI/res/</code>, <code>packages/SystemUI/src/com/android/systemui/screenshot/FloatingWindowUtil.java</code>, <code>core/java/android/content/ClipDescription.java</code> and <code>services/core/java/com/android/server/clipboard/ClipboardService.java</code>. <a href="https://android.googlesource.com/platform/frameworks/base/+/45034f0663f960d9ee5fb0a101a4732b71f6e2f4/packages/SystemUI/src/com/android/systemui/clipboardoverlay/">https://android.googlesource.com/platform/frameworks/base/+/45034f0663f960d9ee5fb0a101a4732b71f6e2f4/packages/SystemUI/src/com/android/systemui/clipboardoverlay/</a></li>
+        <li id="fn-4">Select, edit, and move text on iPhone. Apple Support, iPhone User Guide. <a href="https://support.apple.com/guide/iphone/select-and-edit-text-iph1a9cae52c/ios">https://support.apple.com/guide/iphone/select-and-edit-text-iph1a9cae52c/ios</a></li>
+        <li id="fn-5">Select, edit, and move text on iPad. Apple Support, iPad User Guide. <a href="https://support.apple.com/guide/ipad/select-edit-and-move-text-ipadac2fea3c/ipados">https://support.apple.com/guide/ipad/select-edit-and-move-text-ipadac2fea3c/ipados</a></li>
+        <li id="fn-6">Copy and paste between your iPhone and other Apple devices. Apple Support, iPhone User Guide. <a href="https://support.apple.com/guide/iphone/iph220ea8dca/ios">https://support.apple.com/guide/iphone/iph220ea8dca/ios</a></li>
+        <li id="fn-7">How to copy and paste on Mac. Apple Support, article 102553. <a href="https://support.apple.com/en-us/102553">https://support.apple.com/en-us/102553</a></li>
+        <li id="fn-8">Direct observation of Control-Shift-Command-4 on macOS 27.0, build 26A428, by the site's author, 2026-09-25. The shutter sound played and no thumbnail appeared. Not a published source.</li>
+        <li id="fn-9">Using the clipboard. Microsoft Support. <a href="https://support.microsoft.com/en-us/windows/apps/using-the-clipboard">https://support.microsoft.com/en-us/windows/apps/using-the-clipboard</a></li>
+        <li id="fn-10">Copy the window or screen contents. Microsoft Support, Office. <a href="https://support.microsoft.com/en-us/office/copy-the-window-or-screen-contents">https://support.microsoft.com/en-us/office/copy-the-window-or-screen-contents</a></li>
+        <li id="fn-11">Chromium, <code>ash/clipboard/clipboard_nudge_constants.h</code>, main, read 2026-09-25. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/clipboard/clipboard_nudge_constants.h">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/clipboard/clipboard_nudge_constants.h</a></li>
+        <li id="fn-12">Chromium, <code>ash/ash_strings.grd</code>, main, read 2026-09-25. Cited by message name. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/ash_strings.grd">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/ash_strings.grd</a></li>
+        <li id="fn-13">Chromium, <code>ash/capture_mode/capture_mode_controller.cc</code>, main, read 2026-09-25. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/capture_mode/capture_mode_controller.cc">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/ash/capture_mode/capture_mode_controller.cc</a></li>
+        <li id="fn-14">Chromium, <code>chrome/app/sharesheet_strings.grdp</code>, main, read 2026-09-25. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/app/sharesheet_strings.grdp">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/app/sharesheet_strings.grdp</a></li>
+        <li id="fn-15">Chromium, <code>chrome/browser/renderer_context_menu/render_view_context_menu.cc</code>, main, read 2026-09-25. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/renderer_context_menu/render_view_context_menu.cc">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/renderer_context_menu/render_view_context_menu.cc</a></li>
+        <li id="fn-16">Chromium, <code>chrome/app/generated_resources.grd</code>, main, read 2026-09-25. Cited by message name. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/app/generated_resources.grd">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/app/generated_resources.grd</a></li>
+        <li id="fn-17">Chromium, <code>chrome/browser/ui/toasts/toast_features.cc</code>, main, read 2026-09-25. <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/ui/toasts/toast_features.cc">https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/ui/toasts/toast_features.cc</a></li>
+        <li id="fn-18">Chromium commit 6f629f3, "Enable the toast framework and the mvp toasts by default", 1 November 2024. First in Chrome 132.0.6813.0, per Chromium Dash. <a href="https://chromium.googlesource.com/chromium/src/+/6f629f3fc569ab553702d3cd6fa72e71e6a42e38">https://chromium.googlesource.com/chromium/src/+/6f629f3fc569ab553702d3cd6fa72e71e6a42e38</a></li>
+        <li id="fn-19">GNOME/gnome-shell at tag 51.0, commit 2177bdf. <code>js/ui/screenshot.js</code>, <code>js/ui/shellEntry.js</code>. <a href="https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/2177bdf9624b2d285de7c1d34274073d3769d6b8">https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/2177bdf9624b2d285de7c1d34274073d3769d6b8</a></li>
+        <li id="fn-20">GNOME/gtk at tag 4.24.0, commit 1f47f36, <code>gtk/gtktext.c</code>, <code>gtk_text_copy_clipboard</code>. <a href="https://gitlab.gnome.org/GNOME/gtk/-/blob/1f47f368b17701e693918fcd078436b39d4354d1/gtk/gtktext.c#L4350">https://gitlab.gnome.org/GNOME/gtk/-/blob/1f47f368b17701e693918fcd078436b39d4354d1/gtk/gtktext.c#L4350</a></li>
+        <li id="fn-21">plasma/plasma-workspace at tag v6.7.5, commit cc1ab79. <code>klipper/</code> and <code>applets/clipboard/</code>. <a href="https://invent.kde.org/plasma/plasma-workspace/-/tree/cc1ab7963f94a9b76836412855caed6b94066188">https://invent.kde.org/plasma/plasma-workspace/-/tree/cc1ab7963f94a9b76836412855caed6b94066188</a></li>
+        <li id="fn-22">Neovim <code>:help lua.txt</code>, <code>vim.hl.on_yank()</code>, at tag v0.12.5, commit 5885a30. <a href="https://raw.githubusercontent.com/neovim/neovim/v0.12.5/runtime/doc/lua.txt">https://raw.githubusercontent.com/neovim/neovim/v0.12.5/runtime/doc/lua.txt</a></li>
+        <li id="fn-23">neovim/neovim at tag v0.12.5, commit 5885a30. Cited by file and line. <a href="https://github.com/neovim/neovim/tree/5885a30e1e1225349079e7a1c4a3848aa8e43e42">https://github.com/neovim/neovim/tree/5885a30e1e1225349079e7a1c4a3848aa8e43e42</a></li>
+        <li id="fn-24">vim/vim at tag v9.2.1129, commit 7854b1d. Cited by file and line. <a href="https://github.com/vim/vim/tree/7854b1dbdb50b6264cb8b54cdd90e042d19f93b4">https://github.com/vim/vim/tree/7854b1dbdb50b6264cb8b54cdd90e042d19f93b4</a></li>
+        <li id="fn-25">vim/vim commit 83d7440, "runtime(hlyank): add the hlyank package", 19 March 2025. <a href="https://github.com/vim/vim/commit/83d74404bb355956e9ce23fa62dd5bf1f2549c05">https://github.com/vim/vim/commit/83d74404bb355956e9ce23fa62dd5bf1f2549c05</a></li>
+        <li id="fn-26">protesilaos/pulsar at tag 1.4.0, commit 76dc758. <code>pulsar.el</code>, <code>README.org</code> (the manual) and <code>CHANGELOG.org</code>, cited by file and line. <a href="https://github.com/protesilaos/pulsar/tree/76dc758361378e1c863151cb7febceb4d5218f6f">https://github.com/protesilaos/pulsar/tree/76dc758361378e1c863151cb7febceb4d5218f6f</a></li>
+        <li id="fn-27">protesilaos/pulsar, <code>pulsar.el</code> at tag 1.2.0, commit 2b9c973, and at tag 1.3.0, commit 4c4853d. <a href="https://github.com/protesilaos/pulsar/blob/2b9c9736b6ff3559acf2a65e3a29574dc7787523/pulsar.el">https://github.com/protesilaos/pulsar/blob/2b9c9736b6ff3559acf2a65e3a29574dc7787523/pulsar.el</a> and <a href="https://github.com/protesilaos/pulsar/blob/4c4853dace0638356c5b66048aee3d3dcd2c0ee2/pulsar.el">https://github.com/protesilaos/pulsar/blob/4c4853dace0638356c5b66048aee3d3dcd2c0ee2/pulsar.el</a></li>
+        <li id="fn-28">GNU Emacs at tag emacs-31.1, commit a360712 (GitHub mirror). <code>lisp/simple.el</code> and <code>lisp/pulse.el</code>, cited by file and line. <a href="https://github.com/emacs-mirror/emacs/tree/a360712c9d272d950d8d8255ef74570f7e90b7d9">https://github.com/emacs-mirror/emacs/tree/a360712c9d272d950d8d8255ef74570f7e90b7d9</a></li>
+        <li id="fn-29">GNU Emacs Manual, Transient Mark mode, <code>doc/emacs/mark.texi</code> at tag emacs-31.1, commit a360712. <a href="https://github.com/emacs-mirror/emacs/blob/a360712c9d272d950d8d8255ef74570f7e90b7d9/doc/emacs/mark.texi">https://github.com/emacs-mirror/emacs/blob/a360712c9d272d950d8d8255ef74570f7e90b7d9/doc/emacs/mark.texi</a></li>
+        <li id="fn-30">microsoft/vscode at tag 1.139.1, commit 04c0d99. Cited by file and line. <a href="https://github.com/microsoft/vscode/tree/04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1">https://github.com/microsoft/vscode/tree/04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1</a></li>
+        <li id="fn-31">VSCodeVim/Vim at tag v1.32.4, commit ee59bae, <code>package.json</code>. <a href="https://github.com/VSCodeVim/Vim/blob/ee59baec19a071384128b34c5de87cd24b11d36b/package.json">https://github.com/VSCodeVim/Vim/blob/ee59baec19a071384128b34c5de87cd24b11d36b/package.json</a></li>
+        <li id="fn-32">mguellsegarra/highlight-on-copy at tag v1.1.6, commit 9a015bb. Cited by file and line. <a href="https://github.com/mguellsegarra/highlight-on-copy/tree/9a015bb07ac84c9c93bb7edba05ff7eb50356510">https://github.com/mguellsegarra/highlight-on-copy/tree/9a015bb07ac84c9c93bb7edba05ff7eb50356510</a></li>
+        <li id="fn-33">JetBrains/intellij-community at tag idea/2026.2.3, commit 8062c06. Cited by file and line. <a href="https://github.com/JetBrains/intellij-community/tree/8062c061ff33e22041d9f1844db5b8b8a6b5e4d7">https://github.com/JetBrains/intellij-community/tree/8062c061ff33e22041d9f1844db5b8b8a6b5e4d7</a></li>
+        <li id="fn-34">JetBrains/ideavim at tag 2.47.1, commit c1ae565. <code>doc/IdeaVim Plugins.md</code> and <code>VimHighlightedYank.kt</code>. <a href="https://github.com/JetBrains/ideavim/tree/c1ae565cfb98be30ea75e4b351e823846c69c3c8">https://github.com/JetBrains/ideavim/tree/c1ae565cfb98be30ea75e4b351e823846c69c3c8</a></li>
+        <li id="fn-35">Hazzajenko/Jetbrains-Highlight-on-Copy at tag v1.0.5, commit 6a57c64. Cited by file and line. <a href="https://github.com/Hazzajenko/Jetbrains-Highlight-on-Copy/tree/6a57c641476fc741ad160440429b374b8d9b6f51">https://github.com/Hazzajenko/Jetbrains-Highlight-on-Copy/tree/6a57c641476fc741ad160440429b374b8d9b6f51</a></li>
+        <li id="fn-36">zed-industries/zed at tag v0.233.10, commit 350f338. Cited by file and line. <a href="https://github.com/zed-industries/zed/tree/350f33871e84d5ed83a403523e9490b9bf014a94">https://github.com/zed-industries/zed/tree/350f33871e84d5ed83a403523e9490b9bf014a94</a></li>
+        <li id="fn-37">helix-editor/helix at tag 25.07.1, commit a05c151, <code>helix-term/src/commands.rs</code>. <a href="https://github.com/helix-editor/helix/blob/a05c151bb6e8e9c65ec390b0ae2afe7a5efd619b/helix-term/src/commands.rs">https://github.com/helix-editor/helix/blob/a05c151bb6e8e9c65ec390b0ae2afe7a5efd619b/helix-term/src/commands.rs</a></li>
+        <li id="fn-38">primer/view_components at tag v0.53.5, commit f617990, <code>app/components/primer/beta/clipboard_copy.ts</code> and <code>clipboard_copy.html.erb</code>. <a href="https://github.com/primer/view_components/tree/f6179900575f776a5d43db722a4dddef2d129551/app/components/primer/beta">https://github.com/primer/view_components/tree/f6179900575f776a5d43db722a4dddef2d129551/app/components/primer/beta</a></li>
+        <li id="fn-39">carbon-design-system/carbon at tag v11.117.0, commit 7e1d5e5. <code>packages/react/src/components/Copy/Copy.tsx</code> and <code>CopyButton/CopyButton.tsx</code>. <a href="https://github.com/carbon-design-system/carbon/tree/7e1d5e5492fd70ab8ec901114898c12a374cea98/packages/react/src/components">https://github.com/carbon-design-system/carbon/tree/7e1d5e5492fd70ab8ec901114898c12a374cea98/packages/react/src/components</a></li>
+        <li id="fn-40">mdn/fred at tag v2.9.2, commit 504a1e3. <code>components/copy-button/element.js</code> and <code>l10n/template.ftl</code>. <a href="https://github.com/mdn/fred/tree/504a1e37bc05053724d487bc2a8be5c37a18f94e">https://github.com/mdn/fred/tree/504a1e37bc05053724d487bc2a8be5c37a18f94e</a></li>
+        <li id="fn-41">alphagov/govuk-design-system, main at commit 52b7062, 25 September 2026, <code>src/javascripts/components/copy.mjs</code>. <a href="https://github.com/alphagov/govuk-design-system/blob/52b7062e1cf8171ba7d658de3e0607e767b6d45f/src/javascripts/components/copy.mjs">https://github.com/alphagov/govuk-design-system/blob/52b7062e1cf8171ba7d658de3e0607e767b6d45f/src/javascripts/components/copy.mjs</a></li>
+        <li id="fn-42">GNOME/orca at tag 51.0, commit 856433b. Cited by file and line. <a href="https://gitlab.gnome.org/GNOME/orca/-/tree/856433b61385ba77a2960f281275419a0731b385">https://gitlab.gnome.org/GNOME/orca/-/tree/856433b61385ba77a2960f281275419a0731b385</a></li>
+        <li id="fn-43">10.0 Passing Keystrokes and Typing Text with Scripts. Freedom Scientific, JAWS Script Manual. Read from the Wayback snapshot of 19 February 2022, because the live page is behind a bot check. <a href="https://web.archive.org/web/20220219230755/https://support.freedomscientific.com/Content/Documents/Other/ScriptManual/10-0_PassingKeystrokesAndTypingTextWithScripts.htm">https://web.archive.org/web/20220219230755/https://support.freedomscientific.com/Content/Documents/Other/ScriptManual/10-0_PassingKeystrokesAndTypingTextWithScripts.htm</a></li>
+        <li id="fn-44">nvaccess/nvda at tag release-2026.2, commit f62c980. Cited by file and line. <a href="https://github.com/nvaccess/nvda/tree/f62c980589d1ac30babf68ad48177e9ad29a2e84">https://github.com/nvaccess/nvda/tree/f62c980589d1ac30babf68ad48177e9ad29a2e84</a></li>
+        <li id="fn-45">NVDA What's New, <code>user_docs/en/changes.md</code> at release-2026.2, 2024.1 New Features. <a href="https://github.com/nvaccess/nvda/blob/f62c980589d1ac30babf68ad48177e9ad29a2e84/user_docs/en/changes.md">https://github.com/nvaccess/nvda/blob/f62c980589d1ac30babf68ad48177e9ad29a2e84/user_docs/en/changes.md</a></li>
+        <li id="fn-46">google/talkback, master at commit 229212f, 23 March 2026. Cited by file and line. <a href="https://github.com/google/talkback/tree/229212fdf5842191d0a93fc95d9ca1423b346866">https://github.com/google/talkback/tree/229212fdf5842191d0a93fc95d9ca1423b346866</a></li>
+        <li id="fn-47">Complete guide to Narrator. Microsoft Support, What's new, November 2024 entry. <a href="https://support.microsoft.com/en-us/accessibility/windows/narrator/complete-guide-to-narrator">https://support.microsoft.com/en-us/accessibility/windows/narrator/complete-guide-to-narrator</a></li>
+        <li id="fn-48">Use the onscreen keyboard with VoiceOver on iPhone. Apple Support, iPhone User Guide. <a href="https://support.apple.com/guide/iphone/use-the-onscreen-keyboard-iph3e2e3d1d/ios">https://support.apple.com/guide/iphone/use-the-onscreen-keyboard-iph3e2e3d1d/ios</a></li>
+        <li id="fn-49">Announcements tab. Apple Support, VoiceOver Utility User Guide. <a href="https://support.apple.com/guide/voiceover/announcements-tab-cpvouverbann/mac">https://support.apple.com/guide/voiceover/announcements-tab-cpvouverbann/mac</a></li>
+        <li id="fn-50">"Copy and Cut OSD Notification". KDE Discuss, Help, topic 12935, 24 March 2024. Post 1 by Yannik, post 3 by Nate Graham, post 5 by Luis Bocanegra. <a href="https://discuss.kde.org/t/copy-and-cut-osd-notification/12935/3">https://discuss.kde.org/t/copy-and-cut-osd-notification/12935/3</a></li>
+        <li id="fn-51">KDE bug 484390, "OSD Notification for File Operations". Opened 24 March 2024; RESOLVED WONTFIX by Nate Graham, 6 January 2026. <a href="https://bugs.kde.org/show_bug.cgi?id=484390#c2">https://bugs.kde.org/show_bug.cgi?id=484390#c2</a></li>
+        <li id="fn-52">Communicating status changes. KDE Human Interface Guidelines. <a href="https://develop.kde.org/hig/status_changes/">https://develop.kde.org/hig/status_changes/</a></li>
+        <li id="fn-53">GNOME Design, os-mockups issue 285, "Clipboard feedback &amp; history". Opened by Tobias Bernard, 20 June 2026, open. <a href="https://gitlab.gnome.org/Teams/Design/os-mockups/-/work_items/285">https://gitlab.gnome.org/Teams/Design/os-mockups/-/work_items/285</a></li>
+        <li id="fn-54">KDE bug 524218, "Show OSD after copy". Opened 13 August 2026; CONFIRMED and retitled by Nate Graham the same day. <a href="https://bugs.kde.org/show_bug.cgi?id=524218#c1">https://bugs.kde.org/show_bug.cgi?id=524218#c1</a></li>
+      </ol>
+    </section>
   </main>
 </div>
 
