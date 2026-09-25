@@ -1,4 +1,4 @@
-**Verdict: no system in this check confirms an ordinary copy.** iOS, iPadOS, macOS 26, Windows 10 and 11, ChromeOS, iTerm2 and Kitty all put a selection on the clipboard and show nothing. Confirmations do ship, but only for special copies, and most of those have no copied region on screen: a screenshot, a link, an image, a block of terminal output copied from a button. Windows' Snipping Tool, ChromeOS, Chrome and iTerm2's secondary copy buttons confirm those. The ticket takes the iOS three-finger pinch as the known case, and no Apple doc describes what it shows. WCAG 4.1.3 Status Messages is the right criterion for a "Copied" message, and WCAG2ICT applies it to operating systems as written.
+**Verdict: no system in this check confirms an ordinary copy.** iOS, iPadOS, macOS 26, Windows 10 and 11, ChromeOS, iTerm2 and Kitty all put a selection on the clipboard and show nothing. Confirmations do ship, but only for special copies, and most of those have no copied region on screen: a screenshot, a link, an image, a block of terminal output copied from a button. Windows' Snipping Tool, ChromeOS, Chrome and iTerm2's secondary copy buttons confirm those, and macOS plays its shutter sound for a screenshot sent to the clipboard. The ticket takes the iOS three-finger pinch as the known case, and no Apple doc describes what it shows. WCAG 4.1.3 Status Messages is the right criterion for a "Copied" message, and WCAG2ICT applies it to operating systems as written.
 
 Primary means the vendor's own documentation, its source code, or a W3C document. A maintainer's reply in the project's own tracker counts as primary for that project's intent. CONFIRMED, REFUTED and UNCONFIRMED refer to what those sources say. No doc describing a feature is not proof the feature is absent, so an absence stays UNCONFIRMED unless the source code shows it. Quotes are checked against the raw page text, with curly quotes made straight. Pages were read on 2026-09-25.
 
@@ -8,6 +8,7 @@ Primary means the vendor's own documentation, its source code, or a W3C document
 - No Apple doc describes a confirmation for Copy from the edit menu, Command-C or the share sheet on iOS or iPadOS. UNCONFIRMED. [1] [3] [9] [10]
 - No Apple doc describes a confirmation for a copy in macOS 26. The Mac guide mentions only that Copy is dimmed when it cannot run. UNCONFIRMED. [12]
 - macOS 26 added Clipboard history to Spotlight, which lets a user check a copy after the fact. It shows nothing at the moment of copy. [12] [13] [14]
+- A screenshot sent to the clipboard plays the shutter sound and shows no thumbnail, by direct observation on macOS 27.0. No Apple doc describes the sound. [15] [56]
 - Apple's HIG says to confirm only significant tasks, because people "only need to know when it doesn't" succeed. [7]
 - No Microsoft doc describes a confirmation for Ctrl+C or Edit > Copy on Windows 10 or 11. UNCONFIRMED. [19]
 - Windows confirms one kind of copy by default. The Snipping Tool shows a notification after a screenshot goes to the clipboard. [24]
@@ -40,11 +41,11 @@ The Mac guide gives Copy no result. "How to copy and paste on Mac" covers the me
 
 Clipboard history is a check, not a confirmation. Apple's page says to use "Clipboard history in macOS Tahoe or later to browse through text, images, links, and files you recently copied" [12]. The user opens it from Spotlight with a button "or Press Command-4" [13]. The first search may ask the user to "click Enable in Spotlight" [13]. The release notes list it as a way to "view your clipboard history" [14]. Nothing in these pages appears when the user copies.
 
-Other copy paths are documented without feedback. A screenshot goes to the clipboard if you "press and hold the Control key while you press the other keys" [15]. The page describes the thumbnail that "floats in the bottom-right corner of the screen for a few seconds" for saved captures only [15]. Whether it appears for a clipboard capture is UNCONFIRMED. The Mac guide repeats that "Universal Clipboard isn't a feature that you see" [16]. VoiceOver's Announcements settings list no option for copy or the clipboard [17].
+Other copy paths are documented without feedback. A screenshot goes to the clipboard if you "press and hold the Control key while you press the other keys" [15]. The page describes the thumbnail that "floats in the bottom-right corner of the screen for a few seconds" for saved captures only [15]. On macOS 27.0, build 26A428, a Control screenshot plays the shutter sound and shows no thumbnail, by direct observation [56]. The sound is the only signal this copy gets. No Apple doc mentions it. The Mac guide repeats that "Universal Clipboard isn't a feature that you see" [16]. VoiceOver's Announcements settings list no option for copy or the clipboard [17].
 
 Apple's guide has a macOS 27 edition, and this check covers macOS 26 as the ticket asks. The copy and paste article is written for "macOS Tahoe or later" [12].
 
-**Answer.** UNCONFIRMED. No Apple doc describes a confirmation for any copy in macOS 26. Clipboard history is the only documented way to check one.
+**Answer.** UNCONFIRMED. No Apple doc describes a confirmation for any copy in macOS 26. Clipboard history is the only documented way to check one. A screenshot sent to the clipboard plays the shutter sound, observed on macOS 27.0 rather than 26.
 
 ### Windows 10 and 11
 
@@ -120,7 +121,7 @@ Other criteria that touch the flash and the shake:
 ## Open items
 
 - Does iOS show the "Copy" banner after a three-finger pinch, and also after edit-menu Copy or Command-C on an iPad keyboard? UNCONFIRMED. No Apple doc describes it, so it needs a device.
-- Does the macOS 26 screenshot thumbnail appear for a Control screenshot to the clipboard? UNCONFIRMED, needs a device.
+- Does macOS 26 also play the shutter sound, with no thumbnail, for a screenshot sent to the clipboard? UNCONFIRMED. The observation is from macOS 27.0.
 - Does anything follow a click on Windows 11's 2FA copy button or Click to Do's Copy? UNCONFIRMED, needs a device.
 - Which Windows version added the Snipping Tool notification? UNCONFIRMED.
 - When did ChromeOS turn the clipboard history refresh on by default? The duplicate nudge landed behind a flag in Chrome 116. UNCONFIRMED.
@@ -183,3 +184,4 @@ Other criteria that touch the flash and the shake:
 53. ARIA22: Using role=status to present status messages. W3C WAI, WCAG 2.2 Techniques. https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22
 54. Guidance on Applying WCAG 2 to Non-Web Information and Communications Technologies (WCAG2ICT). W3C Group Note, 11 December 2025. Section on 4.1.3, Note 1; the definition of platform software; the notes on closed functionality and AAA criteria. https://www.w3.org/TR/wcag2ict-22/
 55. Accessible Rich Internet Applications (WAI-ARIA) 1.2, role status. W3C Recommendation. https://www.w3.org/TR/wai-aria-1.2/#status
+56. Direct observation of Control-Shift-Command-4 on macOS 27.0, build 26A428, by the site's author, 2026-09-25. The shutter sound played and no thumbnail appeared. Not a published source.
