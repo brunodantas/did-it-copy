@@ -541,16 +541,16 @@ kbd {
   80% { translate: 5px; }
 }
 
-/* The reduced-motion shake is a static outline, from the system setting unless the page forces a version. */
+/* The reduced-motion shake is a static outline, from the system setting unless the page forces a version; dashed so it never reads as the focus ring. */
 :root[data-motion="reduce"] .copy-shake {
   animation: none;
-  outline: 2px solid var(--accent);
+  outline: 3px dashed var(--accent);
   outline-offset: 6px;
 }
 @media (prefers-reduced-motion: reduce) {
   :root:not([data-motion="full"]) .copy-shake {
     animation: none;
-    outline: 2px solid var(--accent);
+    outline: 3px dashed var(--accent);
     outline-offset: 6px;
   }
 }

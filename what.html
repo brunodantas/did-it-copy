@@ -81,6 +81,7 @@
       <section class="spec-clause" id="v0-1-trigger" aria-labelledby="v0-1-trigger-heading">
         <h3 id="v0-1-trigger-heading">3. Copies with no copied region</h3>
         <p>A "Copy link" menu item copies a link that is on screen, so the system MUST flash the link. A copy button often copies content that isn't on screen, so there is no copied region to flash. When a successful copy has no copied region, the system MUST flash the trigger instead.</p>
+        <p>Some copies have neither, such as a script or a terminal command that writes to the clipboard. For these the system MAY show nothing. A guess at what to flash could point at the wrong thing, so version 0.1 leaves this case open.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-failure" aria-labelledby="v0-1-failure-heading">
@@ -91,7 +92,7 @@
 
       <section class="spec-clause" id="v0-1-reduced-motion" aria-labelledby="v0-1-reduced-motion-heading">
         <h3 id="v0-1-reduced-motion-heading">5. Reduced motion</h3>
-        <p>When the user has turned on the system's reduced motion setting, the flash MUST appear and disappear with no fade. The shake MUST become a static outline around the focused element. The alert sound doesn't change.</p>
+        <p>When the user has turned on the system's reduced motion setting, the flash MUST appear and disappear with no fade. The shake MUST become a static outline around the focused element. The outline MUST look different from the focus indicator, because the element it marks already has focus. The alert sound doesn't change.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-no-preview" aria-labelledby="v0-1-no-preview-heading">
