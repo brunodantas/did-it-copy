@@ -29,7 +29,7 @@
 
     <section class="article-section" aria-labelledby="origin-heading">
       <h2 id="origin-heading">Where copy and paste began</h2>
-      <!-- Bruno's prose: Gypsy's copy was a source selection plus PASTE, and Copy as a command arrived with the Lisa. -->
+      <p>Gypsy had no Copy command. You marked the text you wanted, and pressing PASTE at the target made the copy<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup>. The Copy command we know, which fills a clipboard and leaves the original alone, first appears in Apple's Lisa standards in 1980<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup>.</p>
       <ol class="timeline">
         <li><time datetime="1975-04-20">20 April 1975</time>. Larry Tesler and Timothy Mott describe Gypsy at Xerox PARC. It has no Copy key. The user marks a source, shown by a dotted underline, and presses PASTE to copy it to the target<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup>. The 1978 handbook describes the same model<sup class="fn-ref"><a href="#fn-2" aria-label="Source 2">2</a></sup>.</li>
         <li><time datetime="1979-09">September 1979</time>. The manual for Bravo, the Alto editor Gypsy grew from, marks a copy selection with a dotted underline<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>.</li>
@@ -45,7 +45,7 @@
 
     <section class="article-section" aria-labelledby="clipboard-heading">
       <h2 id="clipboard-heading">The clipboard you could see</h2>
-      <!-- Bruno's prose: the early answer was a visible clipboard, not a signal, and nothing replaced it once it went behind a command. -->
+      <p>The first answer to "did it copy?" was a window: Gypsy and Bravo kept the copied text on screen<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>. The Lisa put the Clipboard on the desktop, and many owners left it open<sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>. Then the Mac and Windows hid it behind a command, Show Clipboard or CLIPBRD.EXE<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup><sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>. From then on you had to go and look, and nothing took the window's place.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Where each system showed the copied content">
         <table>
           <caption>Where each system showed the copied content</caption>
@@ -66,7 +66,7 @@
 
     <section class="article-section" aria-labelledby="guidelines-heading">
       <h2 id="guidelines-heading">What the guidelines said about Copy</h2>
-      <!-- Bruno's prose: each guideline has a feedback rule that its own Copy entry breaks, and all of them put their effort into the failed copy. -->
+      <p>Five guides say <em>the user should see the result of an action, yet none applies that to its own Copy entry</em>. IBM's 1989 guide comes closest, since it asks for a message when there's no other visible sign that an action finished, and that describes a copy exactly<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup>. Where the guides do talk about copy, they talk about copy failure. They disable it, dim it, or beep.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="What each guideline says about Copy and about feedback">
         <table>
           <caption>What each guideline says about Copy and about feedback</caption>
@@ -89,7 +89,7 @@
 
     <section class="article-section" aria-labelledby="menu-title-heading">
       <h2 id="menu-title-heading">The menu-title lead</h2>
-      <!-- Bruno's prose: the lead is partly true. Command-C highlighted the Edit title, but so did every Command key, so the highlight never signalled a copy in particular. -->
+      <p>Classic Mac OS lit up the Edit menu's title when you pressed Command-C. That part holds to this day<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup><sup class="fn-ref"><a href="#fn-25" aria-label="Source 25">25</a></sup>. But it lit up the title for every Command key, so it told you a shortcut ran, not that you copied. With nothing selected, Copy was disabled, so the title stayed dark and nothing beeped<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup>.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="The menu-title lead, claim by claim">
         <table>
           <caption>The menu-title lead, claim by claim</caption>
@@ -108,7 +108,7 @@
 
     <section class="article-section" aria-labelledby="star-heading">
       <h2 id="star-heading">Star's rule</h2>
-      <!-- Bruno's prose: Star shows the other path was open. It gave copy a cursor, a prompt and a new selection. -->
+      <p>Star shows silence was a choice. It had no clipboard. You pressed COPY, the cursor changed shape, a prompt asked where to put the copy, and the copy arrived there already selected<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup>. Its designers wrote the rule down:</p>
       <blockquote>
         <p>"You never invoke a command or push a key and have nothing visible happen"<sup class="fn-ref"><a href="#fn-29" aria-label="Source 29">29</a></sup></p>
         <footer>The Star designers, BYTE, April 1982</footer>
@@ -117,13 +117,13 @@
 
     <section class="article-section" aria-labelledby="why-heading">
       <h2 id="why-heading">Why copy ended up silent</h2>
-      <!-- Bruno's prose: no source gives a reason. The notes read it as: copy changes no data; the visible clipboard went behind a command and nothing replaced it (sources 1, 3, 6, 9, 10); beeps and message boxes were kept for errors (17, 21); the guidelines worked on the failed copy (4, 17, 19); each had a feedback rule that should have covered copy (9, 16, 20, 19, 21). -->
+      <p>None of our sources says why copy went silent. A copy changes nothing in the document, so by default there's nothing to see. The early systems didn't need a signal because the clipboard was on screen<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup><sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>. When it moved behind a command, nothing replaced it<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>. Beeps and message boxes were kept for errors<sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup><sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup>, and the guides spent their words on the failed copy<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup><sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup><sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup>. Each of them had a feedback rule that should have covered copy<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup><sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup><sup class="fn-ref"><a href="#fn-20" aria-label="Source 20">20</a></sup><sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup>. None of them applied it.</p>
     </section>
 
     <section class="article-section" aria-labelledby="platforms-heading">
       <h2 id="platforms-heading">Who confirms a copy</h2>
-      <!-- Bruno's prose: the turn from history to what ships today, which was the Precedent intro. -->
-      <!-- Bruno's prose: only Android confirms an ordinary copy; the rest confirm special copies at most. -->
+      <p>That was the 1980s. Here's what happens today when you copy. We checked each system's docs and, where the code is open, its source.</p>
+      <p>Android is the only system we checked that confirms an ordinary copy. Since Android 13, every clipboard write brings up an overlay with a preview<sup class="fn-ref"><a href="#fn-30" aria-label="Source 30">30</a></sup><sup class="fn-ref"><a href="#fn-32" aria-label="Source 32">32</a></sup>. The rest stay silent for text. At most they confirm special copies, like a screenshot or a copied link, where nothing on screen shows what you copied.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="What each system shows after a copy, by default">
         <table>
           <caption>What each system shows after a copy, by default</caption>
@@ -142,12 +142,12 @@
           </tbody>
         </table>
       </div>
-      <!-- Bruno's prose: Google tells apps to drop their own toast on Android 13 and later, source 57 in the notes. -->
+      <p>Google now tells Android developers to drop their own "Copied" toast on Android 13 and later, because users would see the message twice<sup class="fn-ref"><a href="#fn-30" aria-label="Source 30">30</a></sup>. Once the system confirms a copy, apps don't have to.</p>
     </section>
 
     <section class="article-section" aria-labelledby="editors-heading">
       <h2 id="editors-heading">Editors that flash the copied region</h2>
-      <!-- Bruno's prose: every flash is opt-in. -->
+      <p>Editors come closest to the proposal. Neovim, Vim, Emacs with pulsar, and plugins for VS Code and JetBrains flash the copied region for a moment. Every one of those flashes is off until you turn it on, so you only get it if you know it exists.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Copy and yank feedback in editors">
         <table>
           <caption>Copy and yank feedback in editors</caption>
@@ -170,7 +170,7 @@
 
     <section class="article-section" aria-labelledby="web-heading">
       <h2 id="web-heading">Web "Copied!" buttons</h2>
-      <!-- Bruno's prose: pages confirm their own copies because the browser does not, source 99 in the notes. -->
+      <p>Pages confirm their own copies because the browser doesn't. The W3C Clipboard API, which pages use to write to the clipboard, says nothing about feedback after a write<sup class="fn-ref"><a href="#fn-84" aria-label="Source 84">84</a></sup>. So every site builds its own "Copied!", and each one looks and lasts differently. MDN shows it for 1 second and GOV.UK for 5<sup class="fn-ref"><a href="#fn-69" aria-label="Source 69">69</a></sup><sup class="fn-ref"><a href="#fn-70" aria-label="Source 70">70</a></sup>.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Copy buttons in design systems">
         <table>
           <caption>Copy buttons in design systems</caption>
@@ -189,7 +189,7 @@
 
     <section class="article-section" aria-labelledby="readers-heading">
       <h2 id="readers-heading">Screen reader announcements</h2>
-      <!-- Bruno's prose: a separate channel, which the proposal keeps. -->
+      <p>Screen readers are a separate channel, and an uneven one. Orca speaks after any copy<sup class="fn-ref"><a href="#fn-71" aria-label="Source 71">71</a></sup>. NVDA and TalkBack speak only after copies they make themselves<sup class="fn-ref"><a href="#fn-73" aria-label="Source 73">73</a></sup><sup class="fn-ref"><a href="#fn-75" aria-label="Source 75">75</a></sup>. We found nothing documented for Narrator or VoiceOver<sup class="fn-ref"><a href="#fn-76" aria-label="Source 76">76</a></sup><sup class="fn-ref"><a href="#fn-77" aria-label="Source 77">77</a></sup><sup class="fn-ref"><a href="#fn-78" aria-label="Source 78">78</a></sup>.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="What screen readers say after a copy">
         <table>
           <caption>What screen readers say after a copy</caption>
@@ -210,7 +210,7 @@
 
     <section class="article-section" aria-labelledby="kde-heading">
       <h2 id="kde-heading">The KDE objection</h2>
-      <!-- Bruno's prose: the objection, and why a flash in place is not a notification. -->
+      <p>KDE's objection is to notifications, and it's fair. A banner after every copy would get in the way. But the KDE HIG also says how to show success, by "visually changing something on the screen related to the task that succeeded"<sup class="fn-ref"><a href="#fn-81" aria-label="Source 81">81</a></sup>. A flash on the copied text does that. It obscures nothing, it shows up where you're already looking, and it's gone in about 200 ms.</p>
       <blockquote>
         <p>"it would get really annoying to see big chunky system notifications appearing and covering up content in your windows all the time in response to a very common action"<sup class="fn-ref"><a href="#fn-79" aria-label="Source 79">79</a></sup></p>
         <footer>Nate Graham, KDE, 24 March 2024</footer>
@@ -310,6 +310,7 @@
         <li id="fn-81">Communicating status changes. KDE Human Interface Guidelines. <a href="https://develop.kde.org/hig/status_changes/">https://develop.kde.org/hig/status_changes/</a></li>
         <li id="fn-82">GNOME Design, os-mockups issue 285, "Clipboard feedback &amp; history". Opened by Tobias Bernard, 20 June 2026, open. <a href="https://gitlab.gnome.org/Teams/Design/os-mockups/-/work_items/285">https://gitlab.gnome.org/Teams/Design/os-mockups/-/work_items/285</a></li>
         <li id="fn-83">KDE bug 524218, "Show OSD after copy". Opened 13 August 2026; CONFIRMED and retitled by Nate Graham the same day. <a href="https://bugs.kde.org/show_bug.cgi?id=524218#c1">https://bugs.kde.org/show_bug.cgi?id=524218#c1</a></li>
+        <li id="fn-84">Clipboard API and events. W3C Working Draft, 24 June 2026. <a href="https://www.w3.org/TR/clipboard-apis/">https://www.w3.org/TR/clipboard-apis/</a></li>
       </ol>
     </section>
   </main>
