@@ -1,4 +1,4 @@
-import { copyKeyLabel, flashCopiedRegion, isCopyShortcut, selectionIsEmpty, shake } from "./copy-feedback.js";
+import { copyKeyLabel, flashCopiedRegion, flashText, isCopyShortcut, selectionIsEmpty, shake } from "./copy-feedback.js";
 
 // Home shows the same sentence twice in time: first silent like every desktop today, then with the proposed copy feedback.
 
@@ -10,7 +10,10 @@ const answer = document.getElementById("answer");
 const heading = document.getElementById("answer-heading");
 const verdict = document.getElementById("verdict");
 const toggle = document.getElementById("feedback-toggle");
-const skip = document.getElementById("skip");
+const copyButton = document.getElementById("copy-button");
+
+// A coarse pointer usually means a touch screen with no copy shortcut, so the shake hint is dropped there.
+const coarsePointer = matchMedia("(pointer: coarse)");
 
 let copiesWithoutFeedback = 0;
 let feedbackOn = false;
@@ -20,7 +23,12 @@ verdict.textContent = FIRST_VERDICT;
 
 function reveal() {
   answer.hidden = false;
-  skip.hidden = true;
+}
+
+function recordSilentCopy() {
+  copiesWithoutFeedback += 1;
+  verdict.textContent = copiesWithoutFeedback > 1 ? RECOPY_VERDICT : FIRST_VERDICT;
+  reveal();
 }
 
 function setCopyFeedback(on) {
@@ -28,18 +36,15 @@ function setCopyFeedback(on) {
   toggle.setAttribute("aria-pressed", String(on));
   toggle.textContent = on ? "Turn the flash off" : "Turn on the flash, then copy again";
   heading.textContent = on ? "Now it answers." : "Did it work?";
-  verdict.textContent = on
-    ? `Copy the sentence again. Press ${copyKeyLabel} C with nothing selected, and what has focus shakes.`
-    : FIRST_VERDICT;
+  const shakeHint = coarsePointer.matches ? "" : ` Press ${copyKeyLabel} C with nothing selected, and what has focus shakes.`;
+  verdict.textContent = on ? `Copy the sentence again.${shakeHint}` : FIRST_VERDICT;
 }
 
 // The copy event covers every successful copy, including a phone's long-press menu.
 document.addEventListener("copy", () => {
   if (selectionIsEmpty()) return;
   if (feedbackOn) return flashCopiedRegion();
-  copiesWithoutFeedback += 1;
-  verdict.textContent = copiesWithoutFeedback > 1 ? RECOPY_VERDICT : FIRST_VERDICT;
-  reveal();
+  recordSilentCopy();
 });
 
 // A failed copy fires no copy event in some browsers, so the key press is the only way to catch it.
@@ -52,7 +57,13 @@ document.addEventListener("keydown", (event) => {
 
 toggle.addEventListener("click", () => setCopyFeedback(!feedbackOn));
 
-skip.addEventListener("click", () => {
-  reveal();
-  toggle.focus();
+// The Copy button writes through the Clipboard API, which fires no copy event, so it answers for itself.
+copyButton.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(sentence.textContent);
+  } catch {
+    return feedbackOn ? shake(copyButton) : reveal();
+  }
+  if (feedbackOn) return flashText(sentence);
+  recordSilentCopy();
 });

@@ -35,6 +35,13 @@ export function flashCopiedRegion() {
   flashRects(rects);
 }
 
+// A button that copies an element's text makes that text the copied region, so it flashes in the shape a selection of it would have.
+export function flashText(element) {
+  const range = document.createRange();
+  range.selectNodeContents(element);
+  flashRects(textRects(range));
+}
+
 // A copied region that is a whole element, or a trigger when there is no copied region, flashes in the element's own shape.
 export function flashElement(element) {
   flashRects([element.getBoundingClientRect()], getComputedStyle(element).borderRadius);

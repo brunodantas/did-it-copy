@@ -26,20 +26,24 @@
   <main class="hero">
     <p class="eyebrow">Try it</p>
     <h1 class="hero-sentence" id="sentence">Copy this sentence.</h1>
-    <p class="hero-instruction">
+    <p class="hero-instruction for-keyboard">
       <span>Select it, then press</span>
       <kbd data-copy-key>Ctrl</kbd>
       <kbd>C</kbd>
     </p>
+    <p class="hero-instruction for-touch">Long-press the sentence</p>
+    <div class="copy-alternative">
+      <span>Or press</span>
+      <button class="button" id="copy-button" type="button">Copy</button>
+    </div>
 
     <div class="answer" aria-live="polite">
       <div class="answer-body" id="answer" hidden>
         <h2 id="answer-heading">Did it work?</h2>
         <p id="verdict"></p>
-        <button class="button" id="feedback-toggle" type="button" aria-pressed="false">Turn on the flash, then copy again</button>
+        <button class="button button-primary" id="feedback-toggle" type="button" aria-pressed="false">Turn on the flash, then copy again</button>
         <a href="what.html#demo">Compare them side by side</a>
       </div>
-      <button class="text-button" id="skip" type="button">No keyboard? Skip ahead</button>
     </div>
   </main>
 </div>

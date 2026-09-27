@@ -11,6 +11,9 @@
   --accent: #d83f31;
   --accent-hover: #b23023;
   --accent-soft: #fc7465;
+  /* The call to action fills a shade darker than --accent, since white text on --accent misses 4.5:1. */
+  --cta: #c93a2d;
+  --on-accent: #fff;
   --selection: #ffc4ba;
   /* The flash must read stronger than the selection, so it multiplies on light backgrounds and screens on dark ones. */
   --flash: rgb(252 116 101 / 0.75);
@@ -31,6 +34,8 @@
     --kbd-border: #4a4056;
     --accent: #ff7a6b;
     --accent-hover: #ff9d91;
+    --cta: var(--accent);
+    --on-accent: #17131f;
     --selection: #7a3a34;
     --flash: rgb(252 116 101 / 0.6);
     --flash-blend: screen;
@@ -158,15 +163,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .hero-sentence {
   margin: 0;
   max-width: 14ch;
-  font-size: clamp(44px, 8vw, 96px);
-  line-height: 1.02;
+  font-size: clamp(36px, 6.5vw, 72px);
+  /* Room between lines, so one line's selection highlight never covers the next line's glyphs. */
+  line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--ink-strong);
   text-wrap: balance;
-  user-select: all;
-  -webkit-user-select: all;
-  cursor: text;
 }
 
 .hero-instruction {
@@ -179,6 +182,22 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   font-size: clamp(18px, 2vw, 22px);
   color: var(--muted);
 }
+.hero-instruction.for-touch { display: none; }
+@media (pointer: coarse) {
+  .hero-instruction.for-keyboard { display: none; }
+  .hero-instruction.for-touch { display: flex; }
+}
+
+.copy-alternative {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: -12px;
+  font-size: 15px;
+  color: var(--subtle);
+}
+.copy-alternative .button { margin-top: 0; }
 
 kbd {
   min-width: 22px;
@@ -238,18 +257,16 @@ kbd {
 .button:hover { border-color: var(--accent-soft); }
 .button[aria-pressed="true"] { border-color: var(--accent); }
 
-.text-button {
-  margin-top: auto;
-  padding: 0;
-  font: inherit;
-  font-size: 15px;
-  color: var(--subtle);
-  background: none;
-  border: 0;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
+/* Once pressed, the call to action has done its job and falls back to the plain button. */
+.button-primary:not([aria-pressed="true"]) {
+  padding: 14px 28px;
+  font-size: 18px;
+  color: var(--on-accent);
+  background: var(--cta);
+  border-color: var(--cta);
+  box-shadow: 0 6px 20px -8px var(--cta);
 }
+.button-primary:not([aria-pressed="true"]):hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
 /* Demo */
 
