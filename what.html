@@ -26,11 +26,14 @@
   <main class="article">
     <p class="eyebrow">Draft</p>
     <h1>What</h1>
-    <!-- Bruno's prose: the intro. The OS should confirm every copy with a flash in place, and signal a failed copy with a shake. This page is the spec, with a demo at the end. -->
+    <p>On most desktops, Control-C gives no sign it worked. This page proposes an enhancement: the operating system flashes what you copied, and shakes when a copy fails.</p>
+    <p>First, the idea in plain words, then Proposal v0.1, a spec a desktop team can adopt. The demo at the end lets you try it in your browser.</p>
 
     <section class="article-section" aria-labelledby="summary-heading">
       <h2 id="summary-heading">In plain words</h2>
-      <!-- Bruno's prose: the plain-language summary, for someone who will never read the numbered sections. -->
+      <p>When you copy, the thing you copied lights up for a moment and fades. That works for text, a file, an image, or the Copy link button you clicked. Nothing new appears on screen, nothing moves, and it disappears quickly.</p>
+      <p>When a copy fails, for example because nothing was selected, the element you're working in gives a small shake. If you have the alert sound on, you hear it too.</p>
+      <p>The system does this, not each app. Once your OS does it, apps can stop showing their own "Copied!" messages. Screen readers keep announcing copies as they do now.</p>
     </section>
 
     <section class="article-section" id="v0-1" aria-labelledby="v0-1-heading">
@@ -53,48 +56,69 @@
 
       <section class="spec-clause" id="v0-1-conventions" aria-labelledby="v0-1-conventions-heading">
         <h3 id="v0-1-conventions-heading">1. Conventions</h3>
-        <!-- Bruno's prose: the RFC 2119 keywords, sources 1 and 2. RFC 8174 gives the standard sentence and says the keywords count only in capitals. Then the terms, adapted from CONTEXT.md: copy, copied region, trigger, failed copy, confirmation, failure signal, flash, shake. -->
+        <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-2" aria-label="Source 2">2</a></sup> when, and only when, they appear in all capitals, as shown here.</p>
+        <p>This spec uses these terms.</p>
+        <ul>
+          <li><strong>Copy.</strong> A user command that puts content on the clipboard without changing what is on screen. It covers keyboard shortcuts, menu items such as "Copy link", and copy buttons.</li>
+          <li><strong>Copied region.</strong> The on-screen area that shows the copied content, such as highlighted text or a selected file icon. Some copies have none.</li>
+          <li><strong>Trigger.</strong> The control or menu item that issued a copy.</li>
+          <li><strong>Failed copy.</strong> A copy command that put nothing on the clipboard.</li>
+          <li><strong>Confirmation.</strong> Copy feedback saying the copy succeeded.</li>
+          <li><strong>Failure signal.</strong> Copy feedback saying the copy failed.</li>
+          <li><strong>Flash.</strong> A brief highlight drawn over the copied region, or over the trigger when there is no copied region.</li>
+          <li><strong>Shake.</strong> A brief side-to-side movement of the focused element.</li>
+        </ul>
       </section>
 
       <section class="spec-clause" id="v0-1-confirmation" aria-labelledby="v0-1-confirmation-heading">
         <h3 id="v0-1-confirmation-heading">2. Confirmation</h3>
-        <!-- Bruno's prose: the flash is the confirmation. It covers the copied region, and the bounds of a file or image. The selection stays selected afterwards. It fires once per copy, which keeps it within WCAG 2.3.1, source 3. -->
+        <p>When a copy succeeds and has a copied region, the system MUST flash the copied region. For a file or an image, the flash MUST cover its bounds, such as the file's icon or the image's frame.</p>
+        <p>The flash MUST NOT change the selection. What was selected before the copy stays selected after it.</p>
+        <p>The system MUST flash once per copy. It MUST NOT flash more than three times in any one second, which keeps it within WCAG 2.3.1<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>.</p>
+        <p>The flash SHOULD strengthen the selection colour and then fade out over about 200 ms.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-trigger" aria-labelledby="v0-1-trigger-heading">
         <h3 id="v0-1-trigger-heading">3. Copies with no copied region</h3>
-        <!-- Bruno's prose: a copy button or a "Copy link" item has no copied region, so the flash covers the trigger. -->
+        <p>A copy button or a "Copy link" menu item copies content that isn't on screen, so there is no copied region to flash. When a successful copy has no copied region, the system MUST flash the trigger instead.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-failure" aria-labelledby="v0-1-failure-heading">
         <h3 id="v0-1-failure-heading">4. Failure signal</h3>
-        <!-- Bruno's prose: a failed copy shakes the focused element, and plays the alert sound if the user has it on. The sound is new behaviour. Classic Mac OS's MenuKey returned 0 for a disabled item and did nothing else, source 4, p. I-358. -->
+        <p>When a copy fails, the system MUST shake the focused element. If the user has the system alert sound turned on, the system MUST also play it. The shake is the signal you see, and the sound is the one that works when you aren't looking.</p>
+        <p>The sound is new behaviour. Classic Mac OS never played it on a disabled command. For a disabled menu item, MenuKey returned 0 and did nothing else<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup>.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-reduced-motion" aria-labelledby="v0-1-reduced-motion-heading">
         <h3 id="v0-1-reduced-motion-heading">5. Reduced motion</h3>
-        <!-- Bruno's prose: with reduced motion on, the flash appears and disappears with no fade, and the shake becomes a static outline. -->
+        <p>When the user has turned on the system's reduced motion setting, the flash MUST appear and disappear with no fade. The shake MUST become a static outline around the focused element. The alert sound doesn't change.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-no-preview" aria-labelledby="v0-1-no-preview-heading">
         <h3 id="v0-1-no-preview-heading">6. No preview</h3>
-        <!-- Bruno's prose: the flash only marks what is already on screen, so a screen share shows nothing new. Android's overlay previews up to 500 characters of copied text and closes after 6 seconds, sources 5 and 6. The screen-share leak itself is unconfirmed, so don't claim it. -->
+        <p>The confirmation MUST NOT show the copied content anywhere it wasn't already on screen. The flash marks the copied region in place, so a screen share or a recording shows nothing new.</p>
+        <p>Android does the opposite. Its overlay previews up to 500 characters of copied text, and closes after 6 seconds<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup><sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-ownership" aria-labelledby="v0-1-ownership-heading">
-        <h3 id="v0-1-ownership-heading">7. Who owns copy feedback</h3>
-        <!-- Bruno's prose: the OS owns confirmation, and apps drop their own "Copied!" once the OS gives one. Android 13 set the same rule, source 5. Screen reader announcements stay, because they are a separate channel. -->
+        <h3 id="v0-1-ownership-heading">7. Ownership</h3>
+        <p>The operating system owns confirmation. On a system that meets this spec, an app SHOULD NOT show its own confirmation, such as a "Copied!" toast, for a copy the system confirms. Two confirmations for one copy tell the user nothing new.</p>
+        <p>Android 13 set the same rule. Google "strongly recommend[s] removing toasts or snackbars shown after an in-app copy"<sup class="fn-ref"><a href="#fn-5" aria-label="Source 5">5</a></sup>.</p>
+        <p>Screen reader announcements are a separate channel, and this rule doesn't touch them. A screen reader MAY keep announcing copies, because a flash doesn't reach someone who can't see it.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-page-code" aria-labelledby="v0-1-page-code-heading">
         <h3 id="v0-1-page-code-heading">8. Copies made by page code</h3>
-        <!-- Bruno's prose, ruled 2026-09-27: section 7 doesn't cover a copy a web page makes through the Clipboard API. The OS can't see which button triggered it, so the page keeps its own confirmation. The system still flashes whenever it can find a copied region or trigger for the write, ruled 2026-09-27; it never stays silent to avoid showing feedback twice. The Clipboard API asks for no feedback on a write, source 7. A browser flash on the element the user clicked waits for the W3C filing. -->
+        <p>Section 7 doesn't cover a copy a web page makes through the Clipboard API. The OS sees the write, but not which button caused it. So in this version the page keeps its own confirmation.</p>
+        <p>The system MUST still flash when it can find a copied region or a trigger for the write. It MUST NOT skip the flash to avoid showing two confirmations.</p>
+        <p>The Clipboard API asks browsers for no feedback on a write<sup class="fn-ref"><a href="#fn-7" aria-label="Source 7">7</a></sup>. A browser flash on the element the user clicked would close this gap, and that change belongs in a W3C filing. Version 0.1 leaves it open.</p>
       </section>
     </section>
 
     <section class="article-section" id="intrusive" aria-labelledby="intrusive-heading">
       <h2 id="intrusive-heading">Isn't this too intrusive?</h2>
-      <!-- Bruno's prose: KDE's objection, source 8, quoted on the History page (history.html#kde-heading). A flash in place is not a notification: it covers nothing, moves nothing, and is gone in 200 ms. -->
+      <p>The strongest objection came from KDE. When someone asked for a copy notification in 2024, Nate Graham said big system notifications for such a common action "would get really annoying". Luis Bocanegra agreed that one "may be too intrusive when you do many copy operations"<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup>. The <a href="history.html#kde-heading">History page</a> has the full thread.</p>
+      <p>They're right about notifications. But a flash hides nothing, because it only tints what you copied. It moves nothing, it makes no sound when a copy works, and it's gone in about 200 ms. Nate's own suggestion was an animation, a small shake of the clipboard icon in the tray<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup>. The flash is the same kind of fix, drawn where you're already looking.</p>
     </section>
 
     <section class="demo-section" id="demo" aria-labelledby="demo-heading">

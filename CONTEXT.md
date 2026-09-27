@@ -23,7 +23,7 @@ The control or menu item that issued a copy, such as a copy button or a "Copy li
 _Avoid_: Source, origin
 
 **Failed copy**:
-A copy command that put nothing new on the clipboard, for example because nothing was selected, the app blocked it, or the wrong window had focus.
+A copy command that put nothing on the clipboard, for example because nothing was selected, the app blocked it, or the wrong window had focus.
 _Avoid_: Empty copy, no-op
 
 **Re-copy**:
