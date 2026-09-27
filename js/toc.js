@@ -1,7 +1,7 @@
-// The page guide is built from the h2 headings, so renaming a section never leaves a stale entry behind.
+// The page guide is built from the sections' h2 headings, so renaming a section never leaves a stale entry behind; data-toc-skip leaves one out.
 
 const article = document.querySelector(".article");
-const headings = [...article.querySelectorAll(".article-section > h2, .footnotes > h2")];
+const headings = [...article.querySelectorAll(":scope > section:not([data-toc-skip]) > h2")];
 const wide = matchMedia("(min-width: 1200px)");
 
 const toc = document.createElement("details");
@@ -20,7 +20,7 @@ const links = headings.map((heading) => {
   return link;
 });
 
-article.querySelector("h1 + p").after(toc);
+headings[0].parentElement.before(toc);
 article.classList.add("has-toc");
 
 // On a wide screen the guide is a rail that is always open; on a phone it starts folded so the text comes first.
