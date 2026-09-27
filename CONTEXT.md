@@ -15,7 +15,7 @@ The content a copy put on the clipboard.
 _Avoid_: Selection (the selection is only one way to name copied content), clipboard contents
 
 **Copied region**:
-The on-screen area that shows the copied content, such as highlighted text or a selected file icon. Some copies have none.
+The on-screen area that shows the copied content, such as highlighted text, a selected file icon, or the link a "Copy link" item copies. Some copies have none.
 _Avoid_: Selection, highlight
 
 **Trigger**:

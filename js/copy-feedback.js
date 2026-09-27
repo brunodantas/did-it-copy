@@ -35,8 +35,8 @@ export function flashCopiedRegion() {
   flashRects(rects);
 }
 
-// A copy with no copied region flashes its trigger instead, in the trigger's own shape.
-export function flashTrigger(element) {
+// A copied region that is a whole element, or a trigger when there is no copied region, flashes in the element's own shape.
+export function flashElement(element) {
   flashRects([element.getBoundingClientRect()], getComputedStyle(element).borderRadius);
 }
 

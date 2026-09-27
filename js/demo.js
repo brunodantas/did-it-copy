@@ -1,4 +1,4 @@
-import { copyKeyLabel, flashCopiedRegion, flashTrigger, isCopyShortcut, selectionIsEmpty, shake } from "./copy-feedback.js";
+import { copyKeyLabel, flashCopiedRegion, flashElement, isCopyShortcut, selectionIsEmpty, shake } from "./copy-feedback.js";
 
 // The What page answers every copy with the proposed feedback, except in the panel marked data-silent, which behaves like every desktop today.
 
@@ -37,14 +37,15 @@ document.addEventListener("keydown", (event) => {
   if (!inSilentPanel(target)) shake(target);
 });
 
-// A copy button has no copied region, so the button itself flashes, and a refused clipboard write shakes it.
+// The link a button copies is on screen beside it, so the link flashes, and a refused clipboard write shakes the button.
 for (const button of document.querySelectorAll("[data-copy-button]")) {
-  const content = button.closest(".panel-link").querySelector("code").textContent;
+  const link = button.closest(".panel-link").querySelector("code");
+  const content = link.textContent;
   button.addEventListener("click", async () => {
     const silent = inSilentPanel(button);
     try {
       await navigator.clipboard.writeText(content);
-      if (!silent) flashTrigger(button);
+      if (!silent) flashElement(link);
     } catch {
       if (!silent) shake(button);
     }

@@ -60,7 +60,7 @@
         <p>This spec uses these terms.</p>
         <ul>
           <li><strong>Copy.</strong> A user command that puts content on the clipboard without changing what is on screen. It covers keyboard shortcuts, menu items such as "Copy link", and copy buttons.</li>
-          <li><strong>Copied region.</strong> The on-screen area that shows the copied content, such as highlighted text or a selected file icon. Some copies have none.</li>
+          <li><strong>Copied region.</strong> The on-screen area that shows the copied content, such as highlighted text, a selected file icon, or the link a "Copy link" item copies. Some copies have none.</li>
           <li><strong>Trigger.</strong> The control or menu item that issued a copy.</li>
           <li><strong>Failed copy.</strong> A copy command that put nothing on the clipboard.</li>
           <li><strong>Confirmation.</strong> Copy feedback saying the copy succeeded.</li>
@@ -80,7 +80,7 @@
 
       <section class="spec-clause" id="v0-1-trigger" aria-labelledby="v0-1-trigger-heading">
         <h3 id="v0-1-trigger-heading">3. Copies with no copied region</h3>
-        <p>A copy button or a "Copy link" menu item copies content that isn't on screen, so there is no copied region to flash. When a successful copy has no copied region, the system MUST flash the trigger instead.</p>
+        <p>A "Copy link" menu item copies a link that is on screen, so the system MUST flash the link. A copy button often copies content that isn't on screen, so there is no copied region to flash. When a successful copy has no copied region, the system MUST flash the trigger instead.</p>
       </section>
 
       <section class="spec-clause" id="v0-1-failure" aria-labelledby="v0-1-failure-heading">
