@@ -24,10 +24,79 @@
     </nav>
   </header>
 
-  <main class="demo">
-    <p class="eyebrow">Coming soon</p>
+  <main class="article">
+    <p class="eyebrow">Draft</p>
     <h1>What</h1>
-    <p class="demo-intro">This page is not written yet.</p>
+    <!-- Bruno's prose: the intro. The OS should confirm every copy with a flash in place, and signal a failed copy with a shake. This page is the spec, with a demo at the end. -->
+
+    <section class="article-section" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">In plain words</h2>
+      <!-- Bruno's prose: the plain-language summary, for someone who will never read the numbered sections. -->
+    </section>
+
+    <section class="article-section" id="v0-1" aria-labelledby="v0-1-heading">
+      <h2 id="v0-1-heading">Proposal v0.1</h2>
+      <p class="spec-meta">Version 0.1, draft. Link to this version: <a href="#v0-1">what.html#v0-1</a></p>
+
+      <div class="table-wrap" role="region" tabindex="0" aria-label="The three signals in version 0.1">
+        <table>
+          <caption>The three signals in version 0.1. The numbered sections below are the normative text.</caption>
+          <thead>
+            <tr><th scope="col">Signal</th><th scope="col">When</th><th scope="col">Where</th><th scope="col">Default</th><th scope="col">With reduced motion</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Flash</th><td>A copy that worked</td><td>Over the copied region, or over the trigger when there is none</td><td>The selection colour grows stronger, then fades out over about 200 ms, once per copy<sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup></td><td>Appears and disappears with no fade</td></tr>
+            <tr><th scope="row">Shake</th><td>A failed copy</td><td>The focused element</td><td>A side-to-side movement, 400 ms in the demo</td><td>A static outline</td></tr>
+            <tr><th scope="row">Alert sound</th><td>A failed copy, if the user has the sound on</td><td>No place on screen</td><td>The system alert sound. Classic Mac OS never played it on a disabled command<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup></td><td>Unchanged</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="spec-clause" id="v0-1-conventions" aria-labelledby="v0-1-conventions-heading">
+        <h3 id="v0-1-conventions-heading">1. Conventions</h3>
+        <!-- Bruno's prose: the RFC 2119 keywords, sources 1 and 2. RFC 8174 gives the standard sentence and says the keywords count only in capitals. Then the terms, adapted from CONTEXT.md: copy, copied region, trigger, failed copy, confirmation, failure signal, flash, shake. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-confirmation" aria-labelledby="v0-1-confirmation-heading">
+        <h3 id="v0-1-confirmation-heading">2. Confirmation</h3>
+        <!-- Bruno's prose: the flash is the confirmation. It covers the copied region, and the bounds of a file or image. The selection stays selected afterwards. It fires once per copy, which keeps it within WCAG 2.3.1, source 3. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-trigger" aria-labelledby="v0-1-trigger-heading">
+        <h3 id="v0-1-trigger-heading">3. Copies with no copied region</h3>
+        <!-- Bruno's prose: a copy button or a "Copy link" item has no copied region, so the flash covers the trigger. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-failure" aria-labelledby="v0-1-failure-heading">
+        <h3 id="v0-1-failure-heading">4. Failure signal</h3>
+        <!-- Bruno's prose: a failed copy shakes the focused element, and plays the alert sound if the user has it on. The sound is new behaviour. Classic Mac OS's MenuKey returned 0 for a disabled item and did nothing else, source 4, p. I-358. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-reduced-motion" aria-labelledby="v0-1-reduced-motion-heading">
+        <h3 id="v0-1-reduced-motion-heading">5. Reduced motion</h3>
+        <!-- Bruno's prose: with reduced motion on, the flash appears and disappears with no fade, and the shake becomes a static outline. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-no-preview" aria-labelledby="v0-1-no-preview-heading">
+        <h3 id="v0-1-no-preview-heading">6. No preview</h3>
+        <!-- Bruno's prose: the flash only marks what is already on screen, so a screen share shows nothing new. Android's overlay previews up to 500 characters of copied text and closes after 6 seconds, sources 5 and 6. The screen-share leak itself is unconfirmed, so don't claim it. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-ownership" aria-labelledby="v0-1-ownership-heading">
+        <h3 id="v0-1-ownership-heading">7. Who owns copy feedback</h3>
+        <!-- Bruno's prose: the OS owns confirmation, and apps drop their own "Copied!" once the OS gives one. Android 13 set the same rule, source 5. Screen reader announcements stay, because they are a separate channel. -->
+      </section>
+
+      <section class="spec-clause" id="v0-1-page-code" aria-labelledby="v0-1-page-code-heading">
+        <h3 id="v0-1-page-code-heading">8. Copies made by page code</h3>
+        <!-- Bruno's prose, ruled 2026-09-27: section 7 doesn't cover a copy a web page makes through the Clipboard API. The OS can't see which button triggered it, so the page keeps its own confirmation. The Clipboard API asks for no feedback on a write, source 7. A browser flash on the element the user clicked waits for the W3C filing. -->
+      </section>
+    </section>
+
+    <section class="article-section" id="intrusive" aria-labelledby="intrusive-heading">
+      <h2 id="intrusive-heading">Isn't this too intrusive?</h2>
+      <!-- Bruno's prose: KDE's objection, source 8, quoted on the Precedent page (precedent.html#kde-heading). A flash in place is not a notification: it covers nothing, moves nothing, and is gone in 200 ms. -->
+    </section>
 
     <section class="demo-section" id="demo" aria-labelledby="demo-heading">
       <h2 id="demo-heading">Demo</h2>
@@ -57,6 +126,21 @@
           </div>
         </section>
       </div>
+    </section>
+
+    <section class="footnotes" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources</h2>
+      <p>The research notes behind this page are in <a href="https://github.com/brunodantas/did-it-copy/blob/main/research/precedent.md">research/precedent.md</a> and <a href="https://github.com/brunodantas/did-it-copy/blob/main/research/menu-title-lead.md">research/menu-title-lead.md</a>. Sources were read on 25 and 27 September 2026.</p>
+      <ol>
+        <li id="fn-1">Bradner, Scott. Key words for use in RFCs to Indicate Requirement Levels. RFC 2119, BCP 14, IETF, March 1997. <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></li>
+        <li id="fn-2">Leiba, Barry. Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words. RFC 8174, BCP 14, IETF, May 2017. <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a></li>
+        <li id="fn-3">Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation. Success criterion 2.3.1, Three Flashes or Below Threshold. <a href="https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold">https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold</a></li>
+        <li id="fn-4">Inside Macintosh, Volume I. Apple Computer, Addison-Wesley, 1985. Page I-358, MenuKey. <a href="https://vintageapple.org/inside_o/pdf/Inside_Macintosh_Volume_I_1985.pdf">https://vintageapple.org/inside_o/pdf/Inside_Macintosh_Volume_I_1985.pdf</a></li>
+        <li id="fn-5">Copy and paste. Android Developers, Views guide. Last updated 2026-09-22. <a href="https://developer.android.com/develop/ui/views/touch-and-input/copy-paste">https://developer.android.com/develop/ui/views/touch-and-input/copy-paste</a></li>
+        <li id="fn-6">AOSP <code>platform/frameworks/base</code> at tag android-16.0.0_r4, commit 45034f0. <code>ClipboardOverlayView.java</code> L305 to 308 and <code>ClipboardOverlayController.java</code> L86, in <code>packages/SystemUI/src/com/android/systemui/clipboardoverlay/</code>. <a href="https://android.googlesource.com/platform/frameworks/base/+/45034f0663f960d9ee5fb0a101a4732b71f6e2f4/packages/SystemUI/src/com/android/systemui/clipboardoverlay/">https://android.googlesource.com/platform/frameworks/base/+/45034f0663f960d9ee5fb0a101a4732b71f6e2f4/packages/SystemUI/src/com/android/systemui/clipboardoverlay/</a></li>
+        <li id="fn-7">Clipboard API and events. W3C Working Draft, 24 June 2026. <a href="https://www.w3.org/TR/clipboard-apis/">https://www.w3.org/TR/clipboard-apis/</a></li>
+        <li id="fn-8">"Copy and Cut OSD Notification". KDE Discuss, Help, topic 12935, 24 March 2024. Post 3 by Nate Graham, post 5 by Luis Bocanegra. <a href="https://discuss.kde.org/t/copy-and-cut-osd-notification/12935/3">https://discuss.kde.org/t/copy-and-cut-osd-notification/12935/3</a></li>
+      </ol>
     </section>
   </main>
 </div>

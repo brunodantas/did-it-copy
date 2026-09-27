@@ -398,6 +398,15 @@ kbd {
   color: var(--ink-strong);
 }
 .article code { font-size: 0.9em; overflow-wrap: anywhere; }
+.spec-meta { margin: 0 0 24px; font-size: 15px; color: var(--muted); }
+.spec-clause { margin-top: 32px; }
+.spec-clause h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
 
 /* Only the table scrolls on a narrow screen, never the page. */
 .table-wrap { overflow-x: auto; }
