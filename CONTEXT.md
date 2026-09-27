@@ -44,6 +44,10 @@ _Avoid_: Success feedback, "Copied!"
 A brief highlight drawn over the copied region, or over the trigger when there is no copied region. It is the proposed form of confirmation.
 _Avoid_: Pulse, blink, highlight-on-yank
 
+**Selection colour**:
+The colour the OS draws behind selected content. The flash strengthens it.
+_Avoid_: Highlight colour, accent colour
+
 **Shake**:
 A brief side-to-side movement of the focused element. It is the proposed form of the failure signal.
 _Avoid_: Wiggle, bounce

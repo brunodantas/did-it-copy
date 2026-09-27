@@ -20,4 +20,3 @@ Then open <http://localhost:8321>. Opening `index.html` from disk won't work, be
 
 - The code (HTML markup, CSS and JavaScript) is under the MIT licence, in `LICENSE`.
 - The written content and images are under CC BY 4.0, in `LICENSE-CONTENT`.
-- The Switzer typeface comes from [Fontshare](https://www.fontshare.com/fonts/switzer) under the ITF Free Font License. It loads from the Fontshare API, and this repository does not include the font files.
