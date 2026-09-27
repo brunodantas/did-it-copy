@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Social card · did-it-copy</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <style>
+    /* An image can't follow the viewer's theme or selection colour, so the card fixes both to the macOS defaults. */
+    :root { color-scheme: light; --flash: #b3d7ff; }
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; background: #fff; }
+    body { display: grid; place-items: center; }
+    .card-line {
+      position: relative;
+      margin: 0;
+      padding: 0 12px;
+      font-size: 150px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #1f2328;
+      background: var(--flash);
+      border-radius: 8px;
+    }
+    /* The flash multiplies over the selection under it, as .copy-flash does on the site. */
+    .card-line::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--flash);
+      mix-blend-mode: multiply;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="card-line">Did it copy?</h1>
+</body>
+</html>
