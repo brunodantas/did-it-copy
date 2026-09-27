@@ -23,7 +23,6 @@
   </header>
 
   <main class="article">
-    <p class="eyebrow">Draft</p>
     <h1>History</h1>
     <p>If you press Control-C on most PCs, or Command-C on a Mac, nothing on screen tells you it worked. It's been that way since the mid-1980s. Of all the interface guidelines we read, only one asked for a successful copy to the clipboard to show anything: a 1992 Windows guide made the pointer flash for the pen's Copy gesture<sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup>. The earliest systems didn't need a signal, because they kept the clipboard on screen. This page follows how that view disappeared and why nothing replaced it.</p>
 
@@ -44,7 +43,7 @@
     </section>
 
     <section class="article-section" aria-labelledby="clipboard-heading">
-      <h2 id="clipboard-heading">The clipboard you could see</h2>
+      <h2 id="clipboard-heading">The visible clipboard</h2>
       <p>The first answer to "did it copy?" was a window: Gypsy and Bravo kept the copied text on screen<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup>. The Lisa put the Clipboard on the desktop, and many owners left it open<sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>. Then the Mac and Windows hid it behind a command, Show Clipboard or CLIPBRD.EXE<sup class="fn-ref"><a href="#fn-8" aria-label="Source 8">8</a></sup><sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>. From then on you had to go and look, and nothing took the window's place.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Where each system showed the copied content">
         <table>
@@ -65,7 +64,7 @@
     </section>
 
     <section class="article-section" aria-labelledby="guidelines-heading">
-      <h2 id="guidelines-heading">What the guidelines said about Copy</h2>
+      <h2 id="guidelines-heading">Copy guidelines</h2>
       <p>Five guides say <em>the user should see the result of an action, yet none applies that to its own Copy entry</em>. IBM's 1989 guide comes closest, since it asks for a message when there's no other visible sign that an action finished, and that describes a copy exactly<sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup>. Where the guides do talk about copy, they talk about copy failure. They disable it, dim it, or beep.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="What each guideline says about Copy and about feedback">
         <table>
@@ -88,11 +87,11 @@
     </section>
 
     <section class="article-section" aria-labelledby="menu-title-heading">
-      <h2 id="menu-title-heading">The menu-title lead</h2>
+      <h2 id="menu-title-heading">Menu hint</h2>
       <p>Classic Mac OS lit up the Edit menu's title when you pressed Command-C. That part holds to this day<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup><sup class="fn-ref"><a href="#fn-25" aria-label="Source 25">25</a></sup>. But it lit up the title for every Command key, so it told you a shortcut ran, not that you copied. With nothing selected, Copy was disabled, so the title stayed dark and nothing beeped<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-23" aria-label="Source 23">23</a></sup>.</p>
-      <div class="table-wrap" role="region" tabindex="0" aria-label="The menu-title lead, claim by claim">
+      <div class="table-wrap" role="region" tabindex="0" aria-label="The menu hint, claim by claim">
         <table>
-          <caption>The menu-title lead, claim by claim</caption>
+          <caption>The menu hint, claim by claim</caption>
           <thead>
             <tr><th scope="col">Claim</th><th scope="col">Verdict</th><th scope="col">What the sources show</th></tr>
           </thead>
@@ -116,12 +115,12 @@
     </section>
 
     <section class="article-section" aria-labelledby="why-heading">
-      <h2 id="why-heading">Why copy ended up silent</h2>
+      <h2 id="why-heading">Why copy got silent</h2>
       <p>None of our sources says why copy went silent. A copy changes nothing in the document, so by default there's nothing to see. The early systems didn't need a signal because the clipboard was on screen<sup class="fn-ref"><a href="#fn-1" aria-label="Source 1">1</a></sup><sup class="fn-ref"><a href="#fn-3" aria-label="Source 3">3</a></sup><sup class="fn-ref"><a href="#fn-6" aria-label="Source 6">6</a></sup>. When it moved behind a command, nothing replaced it<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-10" aria-label="Source 10">10</a></sup>. Beeps and message boxes were kept for errors<sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup><sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup>, and the guides spent their words on the failed copy<sup class="fn-ref"><a href="#fn-4" aria-label="Source 4">4</a></sup><sup class="fn-ref"><a href="#fn-17" aria-label="Source 17">17</a></sup><sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup>. Each of them had a feedback rule that should have covered copy<sup class="fn-ref"><a href="#fn-9" aria-label="Source 9">9</a></sup><sup class="fn-ref"><a href="#fn-16" aria-label="Source 16">16</a></sup><sup class="fn-ref"><a href="#fn-19" aria-label="Source 19">19</a></sup><sup class="fn-ref"><a href="#fn-20" aria-label="Source 20">20</a></sup><sup class="fn-ref"><a href="#fn-21" aria-label="Source 21">21</a></sup>. None of them applied it.</p>
     </section>
 
     <section class="article-section" aria-labelledby="platforms-heading">
-      <h2 id="platforms-heading">Who confirms a copy</h2>
+      <h2 id="platforms-heading">21st-century feedback</h2>
       <p>That was the 1980s. Here's what happens today when you copy. We checked each system's docs and, where the code is open, its source.</p>
       <p>Android is the only system we checked that confirms an ordinary copy. Since Android 13, every clipboard write brings up an overlay with a preview<sup class="fn-ref"><a href="#fn-30" aria-label="Source 30">30</a></sup><sup class="fn-ref"><a href="#fn-32" aria-label="Source 32">32</a></sup>. The rest stay silent for text. At most they confirm special copies, like a screenshot or a copied link, where nothing on screen shows what you copied.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="What each system shows after a copy, by default">
@@ -146,7 +145,7 @@
     </section>
 
     <section class="article-section" aria-labelledby="editors-heading">
-      <h2 id="editors-heading">Editors that flash the copied region</h2>
+      <h2 id="editors-heading">Text editors</h2>
       <p>Editors come closest to the proposal. Neovim, Vim, Emacs with pulsar, and plugins for VS Code and JetBrains flash the copied region for a moment. Every one of those flashes is off until you turn it on, so you only get it if you know it exists.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Copy and yank feedback in editors">
         <table>
@@ -169,7 +168,7 @@
     </section>
 
     <section class="article-section" aria-labelledby="web-heading">
-      <h2 id="web-heading">Web "Copied!" buttons</h2>
+      <h2 id="web-heading">Web buttons</h2>
       <p>Pages confirm their own copies because the browser doesn't. The W3C Clipboard API, which pages use to write to the clipboard, says nothing about feedback after a write<sup class="fn-ref"><a href="#fn-84" aria-label="Source 84">84</a></sup>. So every site builds its own "Copied!", and each one looks and lasts differently. MDN shows it for 1 second and GOV.UK for 5<sup class="fn-ref"><a href="#fn-69" aria-label="Source 69">69</a></sup><sup class="fn-ref"><a href="#fn-70" aria-label="Source 70">70</a></sup>.</p>
       <div class="table-wrap" role="region" tabindex="0" aria-label="Copy buttons in design systems">
         <table>
